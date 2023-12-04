@@ -3,6 +3,7 @@
 ::after {
   box-sizing: border-box;
   list-style-type: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -12,4 +13,51 @@ body {
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+}
+
+/* DATE MODULE */
+
+.time-module {
+  padding: 5px 3rem 5px 3rem;
+  background-color: rgb(227, 227, 227);
+  font-size: 0.8rem;
+  border-radius: 9px;
+  margin-top: 1rem;
+}
+
+.date {
+  margin-left: 1rem;
+  color: rgb(110, 110, 110);
+}
+
+/* MAIN CONTENT */
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "heade heade heade heade"
+    "titl1 titl2 titl3 titl4"
+    "links weath other notes"
+    "newli .     .     ."
+}
+
+.header {
+  grid-area: heade;
+  font-size: 2rem;
+
+}
+
+
+
+
+
+
+
+
+/* UTILITY CLASSES */
+
+.bold {
+  font-weight: 900;
 }
