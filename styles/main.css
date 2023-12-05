@@ -64,6 +64,7 @@ main {
   outline: 0;
   background-color: transparent;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .title {
@@ -71,36 +72,34 @@ main {
   font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.714);
   font-weight: 100;
+  /* position: absolute;
+  top: -20px;
+  left: auto;
+  right: auto; */
 }
 
 .quick-links,
 .weather,
 .placeholder,
 .notes {
+  display: flex;
+  flex-direction: column;
   background-color: rgba(227, 227, 227, 0.5);
   min-width: 250px;
   height: 342px;
   border-radius: 13px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px) grayscale(50%);
   padding: 20px 7px;
   text-transform: uppercase;
 }
 
-.quick-links {
-  grid-area: links;
-}
+.quick-links {}
 
-.weather {
-  grid-area: weath;
-}
+.weather {}
 
-.placeholder {
-  grid-area: other;
-}
+.placeholder {}
 
-.notes {
-  grid-area: notes;
-}
+.notes {}
 
 /* RANDOM BACKGROUND IMAGE BUTTON */
 
@@ -118,6 +117,7 @@ main {
   display: flex;
   align-items: center;
   text-transform: lowercase;
+  cursor: pointer;
 }
 
 .new-bg-btn:hover {
@@ -127,13 +127,14 @@ main {
 
 .new-bg-btn:hover .btn-icon {
   transform: rotate(120deg);
+
 }
 
 .btn-icon {
   width: 0.8rem;
   margin-right: 0.5rem;
   transition: all 0.5s ease;
-  filter: invert(13%) sepia(85%) saturate(7258%) hue-rotate(1deg) brightness(94%) contrast(116%);
+  /* filter: invert(13%) sepia(85%) saturate(7258%) hue-rotate(1deg) brightness(94%) contrast(116%); */
 }
 
 
