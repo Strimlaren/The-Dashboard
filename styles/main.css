@@ -105,7 +105,7 @@ main {
 /* RANDOM BACKGROUND IMAGE BUTTON */
 
 .new-bg-btn {
-  padding: 8px 5px;
+  padding: 8px 28px;
   background-color: rgba(227, 227, 227, 0.5);
   color: rgb(110, 110, 110);
   font-size: 0.8rem;
@@ -117,7 +117,7 @@ main {
   transition: all 0.5s ease;
   display: flex;
   align-items: center;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 .new-bg-btn:hover {
@@ -133,6 +133,7 @@ main {
   width: 0.8rem;
   margin-right: 0.5rem;
   transition: all 0.5s ease;
+  filter: invert(13%) sepia(85%) saturate(7258%) hue-rotate(1deg) brightness(94%) contrast(116%);
 }
 
 
