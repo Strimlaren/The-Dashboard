@@ -20,7 +20,7 @@
   <main>
 
     <!-- <h1 id="header" class="header">John Doe Dashboard</h1> -->
-    <input type="text" value="John Doe Dashboard" autocomplete="off" class="header">
+    <input type="text" value="John Doe Dashboard" autocomplete="off" class="headline" autofocus>
 
     <div class="cards-wrapper">
       <section class="quick-links">
@@ -32,8 +32,11 @@
       <section class="placeholder">
         <h2 class="title">Placeholder</h2>
       </section>
-      <section class="notes">
+      <section class="notes" id="notes">
         <h2 class="title">Notes</h2>
+
+        <img src="./images/add.svg" alt="add notes button" class="add-notes-icon" id="add-note-btn">
+
       </section>
     </div>
 
@@ -43,6 +46,7 @@
 
 
   <script src="./javascript/time_module.js"></script>
+  <script src="./javascript/notes_module.js"></script>
 </body>
 
 </html>

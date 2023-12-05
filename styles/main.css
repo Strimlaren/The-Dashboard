@@ -54,12 +54,11 @@ main {
   flex-wrap: wrap;
 }
 
-.header {
+.headline {
   font-size: 3.2rem;
   margin-top: 5.5rem;
   margin-bottom: 1.8rem;
   color: rgba(245, 245, 245, 0.833);
-  /* opacity: 0%; */
   border: 0;
   outline: 0;
   background-color: transparent;
@@ -72,10 +71,7 @@ main {
   font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.714);
   font-weight: 100;
-  /* position: absolute;
-  top: -20px;
-  left: auto;
-  right: auto; */
+  margin-bottom: 1rem;
 }
 
 .quick-links,
@@ -93,15 +89,66 @@ main {
   text-transform: uppercase;
 }
 
+/* NOTE MODULE SPECIFICS*/
+
+.add-notes-icon {
+  filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%);
+  width: 1.7rem;
+  position: absolute;
+  right: 3rem;
+  top: 1.35rem;
+  transition: all 0.5s ease;
+}
+
+.add-notes-icon:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  border-radius: 9px;
+  padding: 3px 5px;
+  overflow-y: hidden;
+}
+
+.note-div {
+  position: relative;
+  gap: 5px;
+}
+
+.remove-note-btn {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 15px;
+}
+
+.remove-note-btn:hover {
+  cursor: pointer;
+}
+
+.note {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0;
+  outline: 0;
+}
+
+/* END OF NOTE MODULE */
+
 .quick-links {}
 
 .weather {}
 
 .placeholder {}
 
-.notes {}
+.notes {
+  gap: 5px;
+  overflow-y: scroll;
+}
 
-/* RANDOM BACKGROUND IMAGE BUTTON */
+/* RANDOMIZE BACKGROUND IMAGE BUTTON */
 
 .new-bg-btn {
   padding: 8px 28px;
@@ -134,7 +181,6 @@ main {
   width: 0.8rem;
   margin-right: 0.5rem;
   transition: all 0.5s ease;
-  /* filter: invert(13%) sepia(85%) saturate(7258%) hue-rotate(1deg) brightness(94%) contrast(116%); */
 }
 
 
