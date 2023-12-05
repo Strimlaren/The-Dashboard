@@ -11,18 +11,22 @@
 body {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
+  background-image: url("../images/guts_beast.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* DATE MODULE */
 
 .time-module {
   padding: 5px 3rem 5px 3rem;
-  background-color: rgb(227, 227, 227);
+  background-color: rgba(227, 227, 227, 0.5);
   font-size: 0.8rem;
   border-radius: 9px;
   margin-top: 1rem;
+  backdrop-filter: blur(4px);
 }
 
 .date {
@@ -33,22 +37,67 @@ body {
 /* MAIN CONTENT */
 
 main {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-    "heade heade heade heade"
-    "titl1 titl2 titl3 titl4"
-    "links weath other notes"
-    "newli .     .     ."
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .header {
   grid-area: heade;
-  font-size: 2rem;
-
+  font-size: 3.2rem;
+  margin-top: 5.5rem;
+  margin-bottom: 1.8rem;
+  color: whitesmoke;
+  opacity: 70%;
 }
 
+.title {
+  font-weight: 100;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.714);
+  font-weight: 100;
+}
+
+.quick-links,
+.weather,
+.placeholder,
+.notes {
+  background-color: rgba(227, 227, 227, 0.5);
+  min-width: 250px;
+  height: 342px;
+  border-radius: 13px;
+  backdrop-filter: blur(4px);
+  padding: 20px 7px;
+}
+
+.quick-links {
+  grid-area: links;
+}
+
+.weather {
+  grid-area: weath;
+}
+
+.placeholder {
+  grid-area: other;
+}
+
+.notes {
+  grid-area: notes;
+}
+
+/* RANDOM BACKGROUND IMAGE BUTTON */
+
+.new-bg-btn {}
 
 
 
