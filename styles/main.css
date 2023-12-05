@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;500;600;700&display=swap');
+
 *,
 ::before,
 ::after {
   box-sizing: border-box;
   list-style-type: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Dosis", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -13,9 +15,10 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: url("../images/guts_beast.jpg");
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-position-y: 0;
 }
 
 /* DATE MODULE */
@@ -52,12 +55,15 @@ main {
 }
 
 .header {
-  grid-area: heade;
   font-size: 3.2rem;
   margin-top: 5.5rem;
   margin-bottom: 1.8rem;
-  color: whitesmoke;
-  opacity: 70%;
+  color: rgba(245, 245, 245, 0.833);
+  /* opacity: 0%; */
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  text-align: center;
 }
 
 .title {
@@ -77,6 +83,7 @@ main {
   border-radius: 13px;
   backdrop-filter: blur(4px);
   padding: 20px 7px;
+  text-transform: uppercase;
 }
 
 .quick-links {
@@ -97,7 +104,36 @@ main {
 
 /* RANDOM BACKGROUND IMAGE BUTTON */
 
-.new-bg-btn {}
+.new-bg-btn {
+  padding: 8px 5px;
+  background-color: rgba(227, 227, 227, 0.5);
+  color: rgb(110, 110, 110);
+  font-size: 0.8rem;
+  border-radius: 9px;
+  border: 0;
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.new-bg-btn:hover {
+  backdrop-filter: none;
+  box-shadow: 0 0 1px 1px rgba(230, 230, 230, 0.5);
+}
+
+.new-bg-btn:hover .btn-icon {
+  transform: rotate(120deg);
+}
+
+.btn-icon {
+  width: 0.8rem;
+  margin-right: 0.5rem;
+  transition: all 0.5s ease;
+}
 
 
 
