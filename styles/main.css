@@ -34,7 +34,7 @@ body {
 
 .date {
   margin-left: 1rem;
-  color: rgb(110, 110, 110);
+  color: rgb(220, 220, 220);
 }
 
 /* MAIN CONTENT */
@@ -151,9 +151,11 @@ textarea {
 /* RANDOMIZE BACKGROUND IMAGE BUTTON */
 
 .new-bg-btn {
+  display: flex;
+  align-items: center;
   padding: 8px 28px;
   background-color: rgba(227, 227, 227, 0.5);
-  color: rgb(110, 110, 110);
+  color: rgb(220, 220, 220);
   font-size: 0.8rem;
   border-radius: 9px;
   border: 0;
@@ -161,8 +163,6 @@ textarea {
   margin-bottom: 2rem;
   backdrop-filter: blur(4px);
   transition: all 0.5s ease;
-  display: flex;
-  align-items: center;
   text-transform: lowercase;
   cursor: pointer;
 }
