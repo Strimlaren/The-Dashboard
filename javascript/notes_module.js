@@ -8,6 +8,7 @@ add_notes_button.addEventListener("click", function () {
   // textarea
   const textarea = document.createElement("textarea");
   textarea.classList.add("note");
+
   // remove button
   const remove_button = document.createElement("img");
   remove_button.src = "./images/close.svg";
@@ -19,6 +20,7 @@ add_notes_button.addEventListener("click", function () {
   // append div to notes section
   notes_section.appendChild(note_div);
   // listen for user input and resize the note
+  textarea.focus();
   textarea.addEventListener("input", function () {
     this.style.height = "0px";
     this.style.height = this.scrollHeight + "px";
