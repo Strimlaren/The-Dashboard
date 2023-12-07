@@ -29,14 +29,18 @@ function create_note(local_id = -1, local_text = 0) {
   // set focus on the textarea when the note is created
   textarea.focus();
   // resize and save note content on user input
-  textarea.addEventListener("input", function () {
-    this.style.height = "0px";
-    this.style.height = this.scrollHeight + "px";
+  textarea.addEventListener("input", adjust_and_save);
+  // run function once to save even empty notes in case user never does any inputing after creating it
+  adjust_and_save();
+
+  function adjust_and_save() {
+    textarea.style.height = "0px";
+    textarea.style.height = textarea.scrollHeight + "px";
     // load data, update/create it and save data
     let notes_data = localStorage.getObj("notesData");
     add_or_update_note(notes_data, { id: note_id, text: textarea.value });
     localStorage.setObj("notesData", notes_data);
-  });
+  }
 
   // remove entire note on click
   remove_button.addEventListener("click", function () {
