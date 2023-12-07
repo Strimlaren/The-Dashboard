@@ -5,6 +5,7 @@ Storage.prototype.setObj = function (key, obj) {
 Storage.prototype.getObj = function (key) {
   return JSON.parse(this.getItem(key));
 };
+
 // First run, check if notes array has been created in the local storage.
 const local_notes_data = [];
 if (!localStorage.getItem("notesData")) {
@@ -13,12 +14,19 @@ if (!localStorage.getItem("notesData")) {
   // LOAD ALL NOTES DATA TO THE PAGE
 }
 
-const test = [
-  "testing text note one",
-  "testing test code test of test two",
-  "test of one of test of three",
-];
-
-localStorage.setObj("test_storage", test);
-
-console.log(localStorage.getObj("test_storage"));
+// Headline code
+let local_headline_data = "";
+const my_headline = document.querySelector(".headline");
+// Check if localstorage has a variable for the headline
+// If not, create one and give it a starting value
+if (!localStorage.getItem("headlineData")) {
+  localStorage.setObj("headlineData", "John Doe Dashboard");
+  my_headline.value = "John Doe Dashboard";
+  // else, set the headline to whatever is in localstorage
+} else {
+  my_headline.value = localStorage.getObj("headlineData");
+}
+// On each input, overwrite the localstorage variable
+my_headline.addEventListener("input", function () {
+  localStorage.setObj("headlineData", my_headline.value);
+});

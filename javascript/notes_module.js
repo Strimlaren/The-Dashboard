@@ -22,6 +22,7 @@ add_notes_button.addEventListener("click", function () {
   notes_section.appendChild(note_div);
   // set focus on the textarea when the note is created
   textarea.focus();
+
   // listen for user input and resize the note
   textarea.addEventListener("input", function () {
     this.style.height = "0px";
@@ -31,6 +32,7 @@ add_notes_button.addEventListener("click", function () {
     add_or_update_note(notes_data, { id: my_id, text: textarea.value });
     localStorage.setObj("notesData", notes_data);
   });
+
   // remove entire note on click
   remove_button.addEventListener("click", function () {
     let notes_data = localStorage.getObj("notesData");
