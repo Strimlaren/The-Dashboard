@@ -9,7 +9,7 @@ Storage.prototype.getObj = function (key) {
 // First run, check if notes array has been created in the local storage.
 const local_notes_data = [];
 if (!localStorage.getItem("notesData")) {
-  localStorage.setItem("notesData", JSON.stringify(local_notes_data));
+  localStorage.setObj("notesData", local_notes_data);
 } else {
   // LOAD ALL NOTES DATA TO THE PAGE
 }
