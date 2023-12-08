@@ -36,8 +36,8 @@ function create_note(local_id = -1, local_text = 0) {
   function adjust_and_save() {
     // Resize the textarea depending on amount of user input
     textarea.style.height = "auto";
-    textarea.style.height =
-      Math.max(textarea.scrollHeight, textarea.clientHeight) + "px";
+    textarea.rows = 1;
+    textarea.style.height = textarea.scrollHeight + "px";
 
     // load data, update/create it and save data
     let notes_data = localStorage.getObj("notesData");
