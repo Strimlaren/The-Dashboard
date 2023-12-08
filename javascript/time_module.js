@@ -20,14 +20,11 @@ function update_time() {
 
   const hours = time.getHours();
   const minutes = time.getMinutes();
-  // const seconds = time.getSeconds();
 
   // In case of single digit, add leading zero
   const current_time = `${hours.toString().padStart(2, "0")}:${minutes
     .toString()
     .padStart(2, "0")}`;
-  // :${ seconds.toString().padStart(2, "0") }`;
-
   time_element.innerText = current_time;
 }
 

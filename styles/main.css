@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../images/guts_beast.jpg");
+  background-image: url("https://images.unsplash.com/photo-1630839437035-dac17da580d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1MzczMTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNDUyNTh8&ixlib=rb-4.0.3&q=85");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -86,7 +86,13 @@ main {
   border-radius: 13px;
   backdrop-filter: blur(4px) grayscale(50%);
   padding: 20px 7px;
+  gap: 5px;
+  overflow-y: scroll;
   text-transform: uppercase;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
 /* WEATHER MODULE SPECIFICS */
@@ -178,20 +184,6 @@ textarea {
 }
 
 /* END OF NOTE MODULE */
-
-.quick-links {}
-
-.weather {
-  gap: 5px;
-  overflow-y: scroll;
-}
-
-.placeholder {}
-
-.notes {
-  gap: 5px;
-  overflow-y: scroll;
-}
 
 /* RANDOMIZE BACKGROUND IMAGE BUTTON/INPUT */
 

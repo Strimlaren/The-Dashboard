@@ -14,15 +14,12 @@ async function fetch_weather(lat, lon) {
 
   if (weather_data.ok) {
     const data = await weather_data.json();
-
-    const week_data = extract_week(data);
-    create_weather_cards(week_data);
-
-    console.log(week_data);
-  }
-  if (!weather_data.ok) console.log("API ERROR!");
+    // Create all cards, with the filtered array which contains one measurement object per day. API provides 5 day forecast only.
+    create_weather_cards(extract_week(data));
+  } else console.log("API ERROR!");
 }
 
+// Creates cards from an array of weather API objects
 function create_weather_cards(array) {
   array.forEach((day) => {
     const section = document.querySelector(".weather");
@@ -31,14 +28,14 @@ function create_weather_cards(array) {
     img.alt = "weather icon";
     img.src = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
     const div2 = new_element("div", "", "forecast-text-content");
-    const h4 = new_element("h4", "GET WHAT DAY IT IS HERE"); // TODO
+    const h4 = new_element("h4", `${get_day(day.dt_txt)}`);
     const div3 = new_element("div", "", "data-div");
-    const div4 = new_element("div", `${day.main.temp}`, "data-obj"); // TODO
+    const div4 = new_element("div", `${day.main.temp} °C`, "data-obj");
     const div5 = new_element(
       "div",
       `${day.weather[0].description}`,
       "data-obj"
-    ); // TODO
+    );
 
     div3.append(div4);
     div3.append(div5);
@@ -50,23 +47,43 @@ function create_weather_cards(array) {
   });
 }
 
-// Returns a new element of specified type and any number of classes
+function get_day(date) {
+  const date_obj = new Date(date);
+  const day = date_obj.getDay();
+  return day;
+}
+
+// Returns a new element of specified type, content and any number of classes
 function new_element(element_type, content, ...element_classes) {
   const new_element = document.createElement(`${element_type}`);
-  if (content !== "") new_element.innerText = content;
+  // Set content to the new element
+  new_element.innerText = content !== "" ? content : "";
+  // Loop through unknown amount of passed classes and add them all
   for (let i = 0; i < element_classes.length; i++) {
     new_element.classList.add(element_classes[i]);
   }
   return new_element;
 }
 
+// Return array with objects with measurements from 12:00 each day
 function extract_week(data) {
-  const today = data.list[0];
+  // If the first measurement is 0:00, this would send 2 measurements from first day, this prevents that. Otherwise, we just take [0] as today
+  const today = data.list[0].dt_txt.includes("00:00")
+    ? data.list[4]
+    : data.list[0];
   const filtered = [];
-
+  // Get todays date for later comparison
+  date_today = data.list[0].dt_txt.slice(0, 10);
+  // Run through entire response worth of data, and extract only 12:00 to get one measurement per day
   data.list.forEach((dataset) => {
-    if (dataset.dt_txt.includes("12:00")) filtered.push(dataset);
+    // We only want 12:00 measurements to make sure we get one per day, and we dont want any more measurements with todays date because we already stored todays measurement in "const today".
+    if (
+      dataset.dt_txt.includes("12:00") &&
+      !dataset.dt_txt.includes(date_today)
+    )
+      filtered.push(dataset);
   });
+  // Place todays measurement first in the array
   filtered.unshift(today);
   return filtered;
 }
