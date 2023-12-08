@@ -19,30 +19,34 @@ async function fetch_weather(lat, lon) {
     create_weather_cards(week_data);
 
     console.log(week_data);
-
-    // const temp_today = ;
-    // const weather_description_today = ;
-    // const weather_code_today = ;
-    // const temp_tomorrow = ;
-    // const weather_description_tomorrow = ;
-    // const weather_code_tomorrow = ;
-    // const temp_daf = ;
-    // const weather_description_daf = ;
-    // const weather_code_daf = ;
   }
   if (!weather_data.ok) console.log("API ERROR!");
 }
 
 function create_weather_cards(array) {
   array.forEach((day) => {
+    const section = document.querySelector(".weather");
     const div1 = new_element("div", "", "forecast-card");
     const img = new_element("img", "", "weather-img");
     img.alt = "weather icon";
+    img.src = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
     const div2 = new_element("div", "", "forecast-text-content");
     const h4 = new_element("h4", "GET WHAT DAY IT IS HERE"); // TODO
     const div3 = new_element("div", "", "data-div");
-    const div4 = new_element("div", "", "data-obj");
-    const div5 = new_element("div", "", "data-obj");
+    const div4 = new_element("div", `${day.main.temp}`, "data-obj"); // TODO
+    const div5 = new_element(
+      "div",
+      `${day.weather[0].description}`,
+      "data-obj"
+    ); // TODO
+
+    div3.append(div4);
+    div3.append(div5);
+    div2.append(h4);
+    div2.append(div3);
+    div1.append(img);
+    div1.append(div2);
+    section.append(div1);
   });
 }
 

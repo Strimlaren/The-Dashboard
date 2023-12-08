@@ -183,6 +183,7 @@ textarea {
 
 .weather {
   gap: 5px;
+  overflow-y: scroll;
 }
 
 .placeholder {}
