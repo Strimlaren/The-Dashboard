@@ -30,12 +30,15 @@ function create_note(local_id = -1, local_text = 0) {
   textarea.focus();
   // resize and save note content on user input
   textarea.addEventListener("input", adjust_and_save);
-  // run function once to save even empty notes in case user never does any inputing after creating it
+  // run function once to save empty notes in case user never does any writing after creating it
   adjust_and_save();
 
   function adjust_and_save() {
-    textarea.style.height = "0px";
-    textarea.style.height = textarea.scrollHeight + "px";
+    // Resize the textarea depending on amount of user input
+    textarea.style.height = "auto";
+    textarea.style.height =
+      Math.max(textarea.scrollHeight, textarea.clientHeight) + "px";
+
     // load data, update/create it and save data
     let notes_data = localStorage.getObj("notesData");
     add_or_update_note(notes_data, { id: note_id, text: textarea.value });

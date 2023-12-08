@@ -3,6 +3,8 @@ const body = document.querySelector("body");
 const user_keyword = document.getElementById("backdrop-keywords-input");
 random_bg_btn.addEventListener("click", get_new_bg);
 
+body.style.backgroundImage = `url("${localStorage.getObj("bgUrl")}")`;
+
 async function get_new_bg() {
   const query = user_keyword.value !== "" ? user_keyword.value : "space";
 
@@ -14,5 +16,6 @@ async function get_new_bg() {
     const data = await response.json();
 
     body.style.backgroundImage = `url("${data.urls.full}")`;
+    localStorage.setObj("bgUrl", data.urls.full);
   }
 }
