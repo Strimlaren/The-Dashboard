@@ -89,6 +89,41 @@ main {
   text-transform: uppercase;
 }
 
+/* WEATHER MODULE SPECIFICS */
+
+.forecast-card {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  text-transform: none;
+}
+
+.forecast-text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h4 {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.data-div {
+  display: flex;
+  gap: 4px;
+}
+
+.data-obj {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.weather-img {
+  width: 4rem;
+}
+
 /* NOTE MODULE SPECIFICS*/
 
 .add-notes-icon {
@@ -108,7 +143,7 @@ main {
 textarea {
   resize: none;
   width: 100%;
-  border-radius: 9px;
+  border-radius: 5px;
   padding: 3px 5px;
   overflow-y: hidden;
 }
