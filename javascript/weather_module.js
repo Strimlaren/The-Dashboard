@@ -1,5 +1,5 @@
 api_key = "022a401dd5b35aca398478bfd4aca623";
-
+// Get user current location coordinates, call the fetch function from there. Avoids scope shenanigans with coord variables
 navigator.geolocation.getCurrentPosition((pos) => {
   const lat = pos.coords.latitude;
   const lon = pos.coords.longitude;
@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition((pos) => {
 
 async function fetch_weather(lat, lon) {
   const weather_data = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=se&units=metric&appid=${api_key}`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=en&units=metric&appid=${api_key}`
   );
 
   if (weather_data.ok) {
@@ -47,10 +47,21 @@ function create_weather_cards(array) {
   });
 }
 
+/* Returns day. Because of API restrictions, returning measurements in 3h increments, it is not always possible to return "Today" to the first item, as during the last hours of the day, the first measurement date will be for the next day. This accounts for that. */
 function get_day(date) {
-  const date_obj = new Date(date);
-  const day = date_obj.getDay();
-  return day;
+  const weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const passed_date = new Date(date);
+  const today = new Date();
+  if (passed_date.getDay() === today.getDay()) return "Today";
+  return weekdays[passed_date.getDay()];
 }
 
 // Returns a new element of specified type, content and any number of classes
@@ -76,7 +87,7 @@ function extract_week(data) {
   date_today = data.list[0].dt_txt.slice(0, 10);
   // Run through entire response worth of data, and extract only 12:00 to get one measurement per day
   data.list.forEach((dataset) => {
-    // We only want 12:00 measurements to make sure we get one per day, and we dont want any more measurements with todays date because we already stored todays measurement in "const today".
+    /* We only want 12:00 measurements to make sure we get one per day, and we dont want any more measurements with todays date because we already stored todays measurement in "const today". */
     if (
       dataset.dt_txt.includes("12:00") &&
       !dataset.dt_txt.includes(date_today)
