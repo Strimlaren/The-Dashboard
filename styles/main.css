@@ -25,7 +25,8 @@ body {
 
 .time-module {
   padding: 5px 3rem 5px 3rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(70, 255, 255, 0.3);
+  color: white;
   font-size: 0.8rem;
   border-radius: 9px;
   margin-top: 1rem;
@@ -34,7 +35,8 @@ body {
 
 .date {
   margin-left: 1rem;
-  color: rgb(220, 220, 220);
+  color: rgba(70, 255, 255, 0.7);
+  ;
 }
 
 /* MAIN CONTENT */
@@ -110,7 +112,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 2;
-  background-color: rgba(25, 25, 25, 0.5);
+  background-color: rgba(25, 25, 25, 0.6);
   backdrop-filter: blur(400px);
 }
 
@@ -155,7 +157,8 @@ h4 {
 /* NOTE MODULE SPECIFICS*/
 
 .add-notes-icon {
-  filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%);
+  /* filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%); */
+  filter: invert(17%) sepia(91%) saturate(6409%) hue-rotate(131deg) brightness(95%) contrast(98%);
   width: 1.7rem;
   position: absolute;
   right: 3rem;
@@ -220,8 +223,8 @@ textarea {
   display: flex;
   align-items: center;
   padding: 8px 18px;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgb(220, 220, 220);
+  background-color: rgba(70, 255, 255, 0.3);
+  color: rgba(70, 255, 255, 0.6);
   font-size: 0.8rem;
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
@@ -234,7 +237,7 @@ textarea {
 
 .new-bg-btn:hover {
   backdrop-filter: none;
-  box-shadow: 0 0 1px 1px rgba(255, 255, 25, 0.5) inset;
+  box-shadow: 0 0 1px 1px rgba(25, 255, 255, 0.4) inset;
 }
 
 .new-bg-btn:hover .btn-icon {
@@ -249,8 +252,8 @@ textarea {
 
 .keyword-input {
   display: inline;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgb(220, 220, 220);
+  background-color: rgba(70, 255, 255, 0.3);
+  color: rgba(70, 255, 255, 0.4);
   backdrop-filter: blur(4px);
   transition: all 0.5s ease;
   text-transform: lowercase;
