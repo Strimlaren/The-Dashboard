@@ -121,8 +121,53 @@ main {
 .link-card {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 98%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 2px;
+  position: relative;
+  transition: all 0.5 ease;
+}
 
+.link-card a {
+  margin-right: 15px;
+  width: 100%;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.link-div {
+  display: flex;
+  align-items: center;
+}
+
+.link-div:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.link-div:hover .link-card {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+h5 {
+  font-size: 1rem;
+  color: black;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.remove-link-btn {
+  position: absolute;
+  right: -1px;
+  top: -5px;
+  width: 15px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.link-img {
+  width: 2rem;
 }
 
 /* WEATHER MODULE SPECIFICS */

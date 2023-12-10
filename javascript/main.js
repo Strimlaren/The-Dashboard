@@ -14,7 +14,9 @@ if (!localStorage.getItem("notesData")) {
   // LOAD ALL NOTES DATA TO THE PAGE
   local_notes_data = localStorage.getObj("notesData");
 
-  local_notes_data.forEach((element) => create_note(element.id, element.text));
+  local_notes_data.forEach((element) =>
+    create_note(element.id, element.text, false)
+  );
 }
 
 // Headline code

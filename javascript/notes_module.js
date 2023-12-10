@@ -5,7 +5,7 @@ const add_notes_button = document.getElementById("add-note-btn");
 add_notes_button.addEventListener("click", () => create_note());
 
 /* Function that can be called with optional parameters. When called to create a note with the interface button, it should be created with a new, random id and no text. If these values are passed in, like when browser is loading the page and wants to fetch and re-populate the notes module, it should use parameters to create a note with id and corresponding text from localStorage. */
-function create_note(local_id = -1, local_text = 0) {
+function create_note(local_id = -1, local_text = 0, focus = true) {
   // give the note a "unique" id unless it already has one
   const note_id = local_id === -1 ? random_id() : local_id;
   // div
@@ -26,8 +26,8 @@ function create_note(local_id = -1, local_text = 0) {
   note_div.append(remove_button);
   // append div to notes section
   notes_section.append(note_div);
-  // set focus on the textarea when the note is created
-  textarea.focus();
+  // set focus on the textarea when the note is created by user, but not when created when page is opened anew.
+  if (focus) textarea.focus();
   // resize and save note content on user input
   textarea.addEventListener("input", adjust_and_save);
   // run function once to save empty notes in case user never does any writing after creating it
