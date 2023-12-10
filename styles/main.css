@@ -116,6 +116,15 @@ main {
   backdrop-filter: blur(400px);
 }
 
+/* QUICK-LINKS MODULE SPECIFICS */
+
+.link-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
 /* WEATHER MODULE SPECIFICS */
 
 .forecast-card {
@@ -280,4 +289,8 @@ textarea {
 
 .bold {
   font-weight: 900;
+}
+
+.pos-right {
+  right: 1.5rem;
 }

@@ -1,4 +1,4 @@
-// Add prototype functions to localstorage to easier get and set arrays into localstorage.
+// Add prototype functions for localstorage to easier get and set arrays into localstorage.
 Storage.prototype.setObj = function (key, obj) {
   return this.setItem(key, JSON.stringify(obj));
 };
