@@ -6,16 +6,27 @@ Storage.prototype.get_obj = function (key) {
   return JSON.parse(this.getItem(key));
 };
 
-// First run, check if notes array has been created in the local storage.
+// Check if notes array has been created in the local storage.
 let local_notes_data = [];
 if (!localStorage.getItem("notesData")) {
   localStorage.set_obj("notesData", local_notes_data);
 } else {
   // Load all note data to the page
   local_notes_data = localStorage.get_obj("notesData");
-
   local_notes_data.forEach((element) =>
     create_note(element.id, element.text, false)
+  );
+}
+
+// Check if Quick-Links array has been created in the local storage.
+let local_links_data = [];
+if (!localStorage.getItem("linksData")) {
+  localStorage.set_obj("linksData", local_links_data);
+} else {
+  // Load all quick-links to the page
+  local_links_data = localStorage.get_obj("linksData");
+  local_links_data.forEach((element) =>
+    create_link(element.name, element.url, false)
   );
 }
 
