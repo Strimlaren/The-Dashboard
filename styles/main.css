@@ -24,8 +24,10 @@ body {
 /* DATE MODULE */
 
 .time-module {
-  padding: 5px 3rem 5px 3rem;
-  background-color: rgba(70, 255, 255, 0.3);
+  padding: 5px 3rem;
+  background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
   font-size: 0.8rem;
   border-radius: 9px;
@@ -83,8 +85,9 @@ main {
 .notes {
   display: flex;
   flex-direction: column;
-  /* background-color: rgba(70, 255, 255, 0.3); */
   background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   min-width: 250px;
   height: 342px;
   border-radius: 13px;
@@ -96,8 +99,6 @@ main {
   scrollbar-width: none;
   -ms-overflow-style: none;
   position: relative;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .quick-links::-webkit-scrollbar,
@@ -125,10 +126,9 @@ main {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  margin-left: 2.5px;
-  margin-right: 2.5px;
+  margin-left: 2px;
+  margin-right: 2px;
   position: relative;
-  transition: all 0.5 ease;
 }
 
 .link-card a {
@@ -175,7 +175,6 @@ h5 {
   text-transform: none;
   margin-left: 2px;
   margin-right: 2px;
-  z-index: 1;
 }
 
 .forecast-text-content {
@@ -266,20 +265,23 @@ textarea {
 
 .random-bg-btns-div {
   display: flex;
-  margin-top: 7rem;
+  margin-top: 5rem;
   margin-bottom: 2rem;
 }
 
 .new-bg-btn {
   display: flex;
   align-items: center;
-  padding: 8px 18px;
-  background-color: rgba(70, 255, 255, 0.3);
+  padding: 5px 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
   color: rgba(70, 255, 255, 0.6);
   font-size: 0.8rem;
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
-  border: 0;
   backdrop-filter: blur(4px);
   transition: all 0.5s ease;
   text-transform: lowercase;
@@ -288,7 +290,6 @@ textarea {
 
 .new-bg-btn:hover {
   backdrop-filter: none;
-  box-shadow: 0 0 1px 1px rgba(25, 255, 255, 0.4) inset;
 }
 
 .new-bg-btn:hover .btn-icon {
@@ -302,13 +303,14 @@ textarea {
 }
 
 .keyword-input {
-  display: inline;
-  background-color: rgba(70, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
   color: rgba(70, 255, 255, 0.4);
   backdrop-filter: blur(4px);
   transition: all 0.5s ease;
   text-transform: lowercase;
-  border: 0;
   outline: 0;
   border-bottom-right-radius: 9px;
   border-top-right-radius: 9px;
@@ -322,11 +324,7 @@ textarea {
   backdrop-filter: none;
 }
 
-
-
-
-
-/* UTILITY CLASSES */
+/* UTILITY CLASSES & MODAL*/
 
 .bold {
   font-weight: 900;
@@ -334,4 +332,66 @@ textarea {
 
 .pos-right {
   right: 1.5rem;
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  margin-top: 47px;
+  transform: translate(-50%, -50%);
+  text-transform: none;
+  text-align: left;
+  font-weight: 700;
+  padding: 20px;
+  background-image: linear-gradient(0deg,
+      white,
+      rgb(206, 206, 206),
+      rgb(141, 141, 141),
+      rgb(74, 74, 74));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 6;
+}
+
+.modal input {
+  width: 100%;
+  height: 2rem;
+  font-size: 1rem;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 4px;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.modal input:hover {
+  border: 1px solid rgba(255, 255, 255, 0.48);
+}
+
+.modal input:focus {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.modal button {
+  margin-top: 1rem;
+  padding: 5px 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); */
+  /* box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  color: whitesmoke;
+  font-size: 0.8rem;
+
 }

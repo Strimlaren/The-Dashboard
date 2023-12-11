@@ -35,3 +35,15 @@ if (!localStorage.getItem("headlineData")) {
 my_headline.addEventListener("input", function () {
   localStorage.setObj("headlineData", my_headline.value);
 });
+
+// MODAL
+
+document.addEventListener("DOMContentLoaded", function () {
+  const add_link_btn = document.querySelector("#add-link-btn");
+  const modal = document.querySelector(".modal");
+
+  add_link_btn.addEventListener("click", function () {
+    if (modal.style.display === "block") modal.style.display = "none";
+    else modal.style.display = "block";
+  });
+});

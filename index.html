@@ -19,12 +19,20 @@
   <!-- Main Content (title & cards)-->
   <main>
 
-    <!-- <h1 id="header" class="header">John Doe Dashboard</h1> -->
     <input id="headline" type="text" autocomplete="off" class="headline" autofocus>
 
     <div class="cards-wrapper">
 
-      <section class="quick-links"> <!--.flip-card-->
+      <section class="quick-links">
+
+        <div class="modal">
+          <label for="link-name">Quick-Link Name:</label>
+          <input type="text" name="link-name" id="link-name" placeholder="Google">
+          <label for="website-link">Quick-Link URL:</label>
+          <input type="text" name="website-link" id="website-link" placeholder="https://www.google.com"><br>
+          <button class="add-link">Add Link</button>
+        </div>
+
         <div class="sticky">
           <h2 class="title">Quick-Links</h2>
           <img src="./images/add.svg" alt="add notes button" class="add-notes-icon pos-right" id="add-link-btn">
@@ -40,6 +48,8 @@
           </a>
           <img src="./images/close.svg" alt="link remove button" class="remove-link-btn">
         </div>
+
+
       </section>
 
       <section class="weather">
