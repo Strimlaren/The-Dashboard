@@ -40,17 +40,17 @@ function create_note(local_id = -1, local_text = 0, focus = true) {
     textarea.style.height = textarea.scrollHeight + "px";
 
     // load data, update/create it and save data
-    let notes_data = localStorage.getObj("notesData");
+    let notes_data = localStorage.get_obj("notesData");
     add_or_update_note(notes_data, { id: note_id, text: textarea.value });
-    localStorage.setObj("notesData", notes_data);
+    localStorage.set_obj("notesData", notes_data);
   }
 
   // remove entire note on click
   remove_button.addEventListener("click", function () {
-    let notes_data = localStorage.getObj("notesData");
+    let notes_data = localStorage.get_obj("notesData");
     // go though data and remove note with this correct id
     const new_notes_data = notes_data.filter((obj) => obj.id !== note_id);
-    localStorage.setObj("notesData", new_notes_data);
+    localStorage.set_obj("notesData", new_notes_data);
     // remove the html
     note_div.remove();
   });
