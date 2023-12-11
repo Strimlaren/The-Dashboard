@@ -22,53 +22,27 @@
     <input id="headline" type="text" autocomplete="off" class="headline" autofocus>
 
     <div class="cards-wrapper">
-
       <section class="quick-links">
-
         <div class="modal">
           <label for="link-name">Quick-Link Name:</label>
-          <input type="text" name="link-name" id="link-name" placeholder="Google">
+          <input type="text" name="link-name" id="link-name" placeholder="Google" required>
           <label for="website-link">Quick-Link URL:</label>
-          <input type="text" name="website-link" id="website-link" placeholder="https://www.google.com"><br>
+          <input type="text" name="website-link" id="website-link" placeholder="https://www.google.com" required><br>
           <button class="add-link">Add Link</button>
+          <span class="announcer"></span>
         </div>
-
         <div class="sticky">
           <h2 class="title">Quick-Links</h2>
           <img src="./images/add.svg" alt="add notes button" class="add-notes-icon pos-right" id="add-link-btn">
         </div>
-
-        <div class="link-card">
-          <a href="https://www.stackoverflow.com">
-            <div class="link-div">
-              <img src="https://s2.googleusercontent.com/s2/favicons?domain=www.stackoverflow.com" alt="link favicon"
-                class="link-img">
-              <h5>Stackoverflow</h5>
-            </div>
-          </a>
-          <img src="./images/close.svg" alt="link remove button" class="remove-link-btn">
-        </div>
-
-
+        <!-- JS INSERTS QUICK-LINK CARDS HERE -->
       </section>
 
       <section class="weather">
         <div class="sticky">
           <h2 class="title">Weather</h2>
         </div>
-
-        <!-- <div class="forecast-card">
-          <img src="./images/close.svg" alt="weather" class="weather-img">
-          <div class="forecast-text-content">
-            <h4>Today</h4>
-            <div class="data-div">
-              <div class="data-obj">1 C</div>
-              <div class="data-obj">sol och moln</div>
-            </div>
-          </div>
-        </div> -->
-
-
+        <!-- JS INSERTS WEATHER CARDS HERE -->
       </section>
 
       <section class="placeholder">
@@ -82,6 +56,7 @@
           <h2 class="title">Notes</h2>
           <img src="./images/add.svg" alt="add notes button" class="add-notes-icon" id="add-note-btn">
         </div>
+        <!-- JS INSERTS NOTE CARDS HERE -->
       </section>
     </div>
 

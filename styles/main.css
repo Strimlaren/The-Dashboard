@@ -160,10 +160,18 @@ h5 {
   top: -5px;
   width: 15px;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-.link-img {
+.remove-link-btn:hover {
+  filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%);
+}
+
+.link-div img {
   width: 2rem;
+  margin: 4px 2px 2px 2px;
+  border-radius: 50%;
 }
 
 /* WEATHER MODULE SPECIFICS */
@@ -242,10 +250,12 @@ textarea {
   top: -5px;
   width: 15px;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  transition: all 0.5s;
 }
 
 .remove-note-btn:hover {
   cursor: pointer;
+  filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%);
 }
 
 .note {
@@ -274,10 +284,8 @@ textarea {
   align-items: center;
   padding: 5px 18px;
   background-color: rgba(255, 255, 255, 0.1);
-  /* background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
-
   color: rgba(70, 255, 255, 0.6);
   font-size: 0.8rem;
   border-top-left-radius: 9px;
@@ -306,7 +314,6 @@ textarea {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
-
   color: rgba(70, 255, 255, 0.4);
   backdrop-filter: blur(4px);
   transition: all 0.5s ease;
@@ -348,7 +355,7 @@ textarea {
   text-transform: none;
   text-align: left;
   font-weight: 700;
-  padding: 20px;
+  padding: 5px;
   background-image: linear-gradient(0deg,
       white,
       rgb(206, 206, 206),
@@ -387,11 +394,13 @@ textarea {
   margin-top: 1rem;
   padding: 5px 18px;
   background-color: rgba(255, 255, 255, 0.1);
-  /* background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); */
-  /* box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); */
   border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  color: whitesmoke;
-  font-size: 0.8rem;
+  color: black;
+  font-size: 1rem;
+  border-radius: 9px;
+}
 
+.modal button:hover {
+  border: 1px solid white;
 }

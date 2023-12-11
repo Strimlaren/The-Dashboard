@@ -11,7 +11,7 @@ let local_notes_data = [];
 if (!localStorage.getItem("notesData")) {
   localStorage.setObj("notesData", local_notes_data);
 } else {
-  // LOAD ALL NOTES DATA TO THE PAGE
+  // Load all note data to the page
   local_notes_data = localStorage.getObj("notesData");
 
   local_notes_data.forEach((element) =>
@@ -36,14 +36,32 @@ my_headline.addEventListener("input", function () {
   localStorage.setObj("headlineData", my_headline.value);
 });
 
-// MODAL
+// Modal popup for creating new Quick-Links
 
-document.addEventListener("DOMContentLoaded", function () {
-  const add_link_btn = document.querySelector("#add-link-btn");
+const add_link_btn = document.querySelector("#add-link-btn");
+add_link_btn.addEventListener("click", toggle_modal);
+
+function toggle_modal() {
   const modal = document.querySelector(".modal");
+  if (modal.style.display === "block") {
+    modal.style.display = "none";
+    add_link_btn.src = "images/add.svg";
+  } else {
+    modal.style.display = "block";
+    add_link_btn.src = "images/close.svg";
+  }
+}
 
-  add_link_btn.addEventListener("click", function () {
-    if (modal.style.display === "block") modal.style.display = "none";
-    else modal.style.display = "block";
-  });
-});
+// GLOBAL FUNCTIONS
+
+// Returns a new element of specified type, content and any number of classes
+function new_element(element_type, content, ...element_classes) {
+  const new_element = document.createElement(`${element_type}`);
+  // Set content to the new element
+  new_element.innerText = content !== "" ? content : "";
+  // Loop through unknown amount of passed classes and add them all
+  for (let i = 0; i < element_classes.length; i++) {
+    new_element.classList.add(element_classes[i]);
+  }
+  return new_element;
+}

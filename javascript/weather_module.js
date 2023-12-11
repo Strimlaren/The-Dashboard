@@ -64,18 +64,6 @@ function get_day(date) {
   return weekdays[passed_date.getDay()];
 }
 
-// Returns a new element of specified type, content and any number of classes
-function new_element(element_type, content, ...element_classes) {
-  const new_element = document.createElement(`${element_type}`);
-  // Set content to the new element
-  new_element.innerText = content !== "" ? content : "";
-  // Loop through unknown amount of passed classes and add them all
-  for (let i = 0; i < element_classes.length; i++) {
-    new_element.classList.add(element_classes[i]);
-  }
-  return new_element;
-}
-
 // Return array with objects with measurements from 12:00 each day
 function extract_week(data) {
   // If the first measurement is 0:00, this would send 2 measurements from first day, this prevents that. Otherwise, we just take [0] as today
