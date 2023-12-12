@@ -81,7 +81,7 @@ main {
 
 .quick-links,
 .weather,
-.placeholder,
+.books,
 .notes {
   display: flex;
   flex-direction: column;
@@ -176,7 +176,8 @@ h5 {
 
 /* WEATHER MODULE SPECIFICS */
 
-.forecast-card {
+.forecast-card,
+.book-card {
   display: flex;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
@@ -185,7 +186,8 @@ h5 {
   margin-right: 2px;
 }
 
-.forecast-text-content {
+.forecast-text-content,
+.book-text-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -207,7 +209,8 @@ h4 {
   padding: 2px 5px;
 }
 
-.weather-img {
+.weather-img,
+.book-img {
   width: 4rem;
 }
 
