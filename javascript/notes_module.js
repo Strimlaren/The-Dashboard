@@ -46,7 +46,7 @@ function create_note(local_id = -1, local_text = 0, focus = true) {
   }
 
   // remove entire note on click
-  remove_button.addEventListener("click", function () {
+  remove_button.addEventListener("click", () => {
     let notes_data = localStorage.get_obj("notesData");
     // go though data and remove note with this correct id
     const new_notes_data = notes_data.filter((obj) => obj.id !== note_id);

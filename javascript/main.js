@@ -24,6 +24,9 @@ if (!localStorage.getItem("linksData")) {
   localStorage.set_obj("linksData", local_links_data);
 } else {
   // Load all quick-links to the page
+
+  // NEEDS FIX
+
   local_links_data = localStorage.get_obj("linksData");
   local_links_data.forEach((element) =>
     create_link(element.name, element.url, false)
