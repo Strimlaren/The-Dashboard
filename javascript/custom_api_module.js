@@ -36,6 +36,11 @@ function create_books(array) {
     img.src = `https://covers.openlibrary.org/b/id/${book.covers[0]}-M.jpg`;
     const div2 = new_element("div", "", "book-text-content");
     const h4 = new_element("h4", book.title);
+    const p = new_element(
+      "p",
+      `${book.description.slice(0, 160)}...`,
+      "description"
+    );
     const div3 = new_element("div", "", "data-div");
     const div4 = new_element("div", book.created.value.slice(0, 4), "data-obj");
     const link = new_element("a", "More info", "data-obj");
@@ -44,6 +49,7 @@ function create_books(array) {
     div3.append(div4);
     div3.append(link);
     div2.append(h4);
+    div2.append(p);
     div2.append(div3);
     div1.append(img);
     div1.append(div2);
