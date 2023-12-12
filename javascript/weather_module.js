@@ -16,6 +16,8 @@ async function fetch_weather(lat, lon) {
     const data = await weather_data.json();
     // Create all cards, with the filtered array which contains one measurement object per day. API provides 5 day forecast only.
     create_weather_cards(extract_week(data));
+    console.log(extract_week(data));
+    console.log(data);
   } else console.log("API ERROR!");
 }
 
@@ -67,7 +69,7 @@ function get_day(date) {
 // Return array with objects with measurements from 12:00 each day
 function extract_week(data) {
   // If the first measurement is 0:00, this would send 2 measurements from first day, this prevents that. Otherwise, we just take [0] as today
-  const today = data.list[0].dt_txt.includes("00:00")
+  const today = data.list[0].dt_txt.includes("00:00:00")
     ? data.list[4]
     : data.list[0];
   const filtered = [];

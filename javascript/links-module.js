@@ -11,8 +11,8 @@ add_link_button.addEventListener("click", () => {
 // Default values will be used if user creates new link
 function create_link(name = 0, url = 0, user_call = true) {
   // Check how function was called. User or browser (re)loaded?
-  const link_name = name !== 0 ? name : user_link_name.value;
-  const link_url = url !== 0 ? url : user_link_url.value;
+  const link_name = name === 0 ? user_link_name.value : name;
+  const link_url = url === 0 ? user_link_url.value : url;
 
   // Make sure user actually entered both a name and url
   if (name === "" || (url === "" && user_call)) {
@@ -22,9 +22,6 @@ function create_link(name = 0, url = 0, user_call = true) {
   // Create all elements and append them all
   const link_card = new_element("div", "", "link-card");
   const the_link = new_element("a", "");
-  // the_link.href = user_call
-  //   ? format_link(url)
-  //   : format_link(user_link_url.value);
   the_link.href = format_link(link_url);
   the_link.target = "_blank";
   const link_div = new_element("div", "", "link-div");
