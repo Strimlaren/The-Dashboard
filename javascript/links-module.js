@@ -15,7 +15,7 @@ function create_link(name = 0, url = 0, user_call = true) {
   const link_url = url === 0 ? user_link_url.value : url;
 
   // Make sure user actually entered both a name and url
-  if (name === "" || (url === "" && user_call)) {
+  if (link_name === "" || link_url === "") {
     announcer.innerText = "Field(s) empty!";
     return;
   }
@@ -64,9 +64,9 @@ function create_link(name = 0, url = 0, user_call = true) {
 }
 
 // Save link to localStorage
-function save_link(name, url) {
+function save_link(my_name, my_url) {
   let links_data = localStorage.get_obj("linksData");
-  links_data.push({ name: name, url: format_link(url) }),
+  links_data.push({ name: my_name, url: format_link(my_url) }),
     localStorage.set_obj("linksData", links_data);
 }
 // Super basic making sure user gave a proper url format

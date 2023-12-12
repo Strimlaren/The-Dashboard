@@ -16,8 +16,6 @@ async function fetch_weather(lat, lon) {
     const data = await weather_data.json();
     // Create all cards, with the filtered array which contains one measurement object per day. API provides 5 day forecast only.
     create_weather_cards(extract_week(data));
-    console.log(extract_week(data));
-    console.log(data);
   } else console.log("API ERROR!");
 }
 
