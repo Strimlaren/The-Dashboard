@@ -129,6 +129,7 @@ main {
   margin-left: 2px;
   margin-right: 2px;
   position: relative;
+  transition: all 0.5s;
 }
 
 .link-card a {
@@ -141,6 +142,7 @@ main {
 .link-div {
   display: flex;
   align-items: center;
+  border-radius: 5px;
 }
 
 .link-div:hover h5 {
@@ -454,4 +456,17 @@ textarea {
 
 .modal button:hover {
   border: 1px solid white;
+}
+
+@media(max-width: 540px) {
+  .headline {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .random-bg-btns-div {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 }

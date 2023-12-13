@@ -29,6 +29,7 @@ async function get_author_key(author) {
 // Place the book objects on the module
 function create_books(array) {
   array.forEach((book) => {
+    // console.log(`${book.title} + ${typeof book.description}`);
     const section = document.querySelector(".books");
     const div1 = new_element("div", "", "book-card");
     const img = new_element("img", "", "book-img");
@@ -45,6 +46,7 @@ function create_books(array) {
     const div4 = new_element("div", book.created.value.slice(0, 4), "data-obj");
     const link = new_element("a", "More info", "data-obj");
     link.href = `https://openlibrary.org${book.key}`;
+    link.target = "_blank";
 
     div3.append(div4);
     div3.append(link);
