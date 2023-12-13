@@ -45,14 +45,14 @@
   if you wish to know the intricacies of that functions, reading it you will already
   know what it should be doing, even before you start. This has helped me so many
   times in searching for bugs.
-  - I did an OK job with commenting, regular commits and good commit messages.
-    I have a strong need for organizing and symmetry so I have been doing my best to
-    keep the code clean with meaningful empty lines and placement of comments. This
-    works against me as well sometimes, I have an OCD-like need to keep comments on
-    one line to not make these large gaps in the code between two lines of code that
-    make readability harder. So I can spend too much time trying to come up with
-    short sentances that describe what is going on and why without distracting the
-    eyes when they are just trying to make out the code.
+- I did an OK job with commenting, regular commits and good commit messages.
+  I have a strong need for organizing and symmetry so I have been doing my best to
+  keep the code clean with meaningful empty lines and placement of comments. This
+  works against me as well sometimes, I have an OCD-like need to keep comments on
+  one line to not make these large gaps in the code between two lines of code that
+  make readability harder. So I can spend too much time trying to come up with
+  short sentances that describe what is going on and why without distracting the
+  eyes when they are just trying to make out the code.
 
 ### Code execution weaknesses
 
@@ -87,8 +87,8 @@
   bit of annoying fragmentation of the code, and some errors. I could probably benefit
   in this regard refactoring the entire assignment into OOP, but I think that would be
   overkill considering eveything is done and working.
-  - In retrospect, writing this when everything is done, I can now identify several
-    places where I could have used functions like .map() and probably several others
-    if I dig hard enough. This could save some lines of code, improve readability, and
-    maybe even some performance. Not that it would do much difference on a small app
-    like this one, but for the future.
+- In retrospect, writing this when everything is done, I can now identify several
+  places where I could have used functions like .map() and probably several others
+  if I dig hard enough. This could save some lines of code, improve readability, and
+  maybe even some performance. Not that it would do much difference on a small app
+  like this one, but for the future.
