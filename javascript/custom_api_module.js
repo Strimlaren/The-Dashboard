@@ -39,7 +39,7 @@ function create_books(array) {
     const h4 = new_element("h4", book.title);
     const p = new_element(
       "p",
-      `${book.description.slice(0, 160)}...`,
+      `${get_description(book).slice(0, 160)}...`,
       "description"
     );
     const div3 = new_element("div", "", "data-div");
@@ -59,11 +59,19 @@ function create_books(array) {
   });
 }
 
-get_books();
+/* API endpoint hierarchy is inconsistent. Some objects returned have the description
+attribute as a string, while others are objects that hold the description
+behind a key "value". This makes sure to return from the correct place and avoid
+"is not a function" errors. Also modify the description to get more valuable
+text on the confined space of the book cards. */
+function get_description(book) {
+  let new_string = "";
+  if (typeof book.description == "string") new_string = book.description;
+  else if (typeof book.description == "object")
+    new_string = book.description.value;
+  // Remove the excessive newlines.
+  return new_string.replace("\r\n\r\n", " ");
+}
 
-// async get_cover(id, size) {
-//   const response = await fetch(`https://covers.openlibrary.org/b/id/${id}-${size}.jpg`);
-//   if (response.ok) {
-//     const image =
-//   }
-// }
+// Run the shit
+get_books();

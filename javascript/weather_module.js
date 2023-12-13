@@ -1,5 +1,6 @@
 api_key = "022a401dd5b35aca398478bfd4aca623";
-// Get user current location coordinates, call the fetch function from there. Avoids scope shenanigans with coord variables
+/* Get user current location coordinates, call the fetch function from there.
+ Avoids scope shenanigans with coord variables */
 navigator.geolocation.getCurrentPosition((pos) => {
   const lat = pos.coords.latitude;
   const lon = pos.coords.longitude;
@@ -14,9 +15,10 @@ async function fetch_weather(lat, lon) {
 
   if (weather_data.ok) {
     const data = await weather_data.json();
-    // Create all cards, with the filtered array which contains one measurement object per day. API provides 5 day forecast only.
+    /* Create all cards, with the filtered array which contains one 
+    measurement object per day. API provides 5 day forecast only. */
     create_weather_cards(extract_week(data));
-  } else console.log("API ERROR!");
+  } else console.log("WEATHER API ERROR!");
 }
 
 // Creates cards from an array of weather API objects

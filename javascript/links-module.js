@@ -53,7 +53,9 @@ function create_link(name = 0, url = 0, user_call = true) {
   link_card.append(remove_button);
   link_list.append(link_card);
 
-  // Only save the link if this function was called by the user. Otherwise the loading of the page will create another link each time it uses this function to recreate a link from memory.
+  /* Only save the link if this function was called by the user. Otherwise 
+  the loading of the page will create another link each time it uses this 
+  function to recreate a link from memory. */
   if (user_call) save_link(link_name, link_url);
   // Reset form and error prompt before closing modal
   user_link_name.value = "";
@@ -75,14 +77,3 @@ function format_link(link) {
   if (!link.includes("https://")) link = `https://${link}`;
   return link;
 }
-
-//       <div class="link-card">
-//         <a href="${user_link_url.value}" target="_blank>
-//           <div class="link-div">
-//             <img src="https://s2.googleusercontent.com/s2/favicons?domain=${user_link_url.value}" alt="link favicon"
-//               class="link-img">
-//             <h5>${user_link_name.value}</h5>
-//           </div>
-//         </a>
-//         <img src="./images/close.svg" alt="link remove button" class="remove-link-btn">
-//       </div>;

@@ -6,6 +6,14 @@ Storage.prototype.get_obj = function (key) {
   return JSON.parse(this.getItem(key));
 };
 
+if (!localStorage.getItem("bgUrl"))
+  document.body.style.backgroundImage =
+    "https://images.unsplash.com/photo-1630839437035-dac17da580d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1MzczMTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNDUyNTh8&ixlib=rb-4.0.3&q=85";
+else
+  document.body.style.backgroundImage = `url("${localStorage.get_obj(
+    "bgUrl"
+  )}")`;
+
 // Check if notes array has been created in the local storage.
 let local_notes_data = [];
 if (!localStorage.getItem("notesData")) {
