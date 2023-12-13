@@ -68,7 +68,8 @@ function get_day(date) {
 
 // Return array with objects with measurements from 12:00 each day
 function extract_week(data) {
-  // If the first measurement is 0:00, this would send 2 measurements from first day, this prevents that. Otherwise, we just take [0] as today
+  /* If the first measurement is from 0:00, 2 measurements from first day
+  would be sent, this prevents that. Otherwise, we just take[0] as today */
   const today = data.list[0].dt_txt.includes("00:00:00")
     ? data.list[4]
     : data.list[0];
