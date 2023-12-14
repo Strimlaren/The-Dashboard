@@ -26,7 +26,7 @@ search_weather_input.addEventListener("input", () => {
 
 async function get_search_query() {
   const response = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${search_weather_input.value}&appid=${api_key}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${search_weather_input.value}&appid=${api_key}`
   );
   if (response.ok) {
     const city_name = await response.json();
