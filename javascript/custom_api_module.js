@@ -2,7 +2,7 @@ const search_author_input = document.querySelector(".search-author");
 // Wait for enter key inside author search field
 search_author_input.addEventListener("keydown", (event) => {
   // Make sure user actually entered a search term
-  if (event.key === "Enter" && search_author_input.vaalue !== "") {
+  if (event.key === "Enter" && search_author_input.value !== "") {
     // Remove any previous books
     let old_books = document.querySelectorAll(".book-card");
     old_books.forEach((book) => {
