@@ -187,6 +187,21 @@ h5 {
   margin-right: 2px;
 }
 
+.search-weather {
+  text-align: center;
+  padding: 5px;
+  width: 235px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: white;
+  background-color: transparent;
+  font-weight: 300;
+  margin: 0.2rem 0.1rem;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
 .forecast-text-content {
   display: flex;
   flex-direction: column;
@@ -240,6 +255,7 @@ h4 {
   margin: 0.2rem 0.1rem;
   border: 0;
   outline: 0;
+  cursor: pointer;
 }
 
 .book-img {

@@ -1,12 +1,14 @@
 const search_author_input = document.querySelector(".search-author");
-// Trigger a new author search on Enter
+// Wait for enter key inside author search field
 search_author_input.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
+  // Make sure user actually entered a search term
+  if (event.key === "Enter" && search_author_input.vaalue !== "") {
     // Remove any previous books
     let old_books = document.querySelectorAll(".book-card");
     old_books.forEach((book) => {
       book.remove();
     });
+    // Get and render new books
     get_books_by(search_author_input.value);
   }
 });
@@ -16,7 +18,7 @@ search_author_input.addEventListener("input", () => {
 });
 
 async function get_books_by(author) {
-  // First get the author openlibrary-key
+  // First get the authors openlibrary-key
   const author_response = await fetch(
     `https://openlibrary.org/search/authors.json?q=${author}`
   );
@@ -43,7 +45,7 @@ async function get_books_by(author) {
         .filter((book) => book.description)
         .filter((book) => book.authors.length === 1)
         .filter((book) => book.covers);
-      console.log(filtered_books);
+
       if (filtered_books.length === 0)
         document.querySelector(".search-author").style.color = "red";
       if (filtered_books.length > 0)
@@ -56,7 +58,6 @@ async function get_books_by(author) {
 // Place the book objects on the module
 function create_books(array) {
   array.forEach((book) => {
-    // console.log(`${book.title} + ${typeof book.description}`);
     const section = document.querySelector(".books");
     const div1 = new_element("div", "", "book-card");
     const img = new_element("img", "", "book-img");
