@@ -1,12 +1,18 @@
 const search_author_input = document.querySelector(".search-author");
+// Trigger a new author search on Enter
 search_author_input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
+    // Remove any previous books
     let old_books = document.querySelectorAll(".book-card");
     old_books.forEach((book) => {
       book.remove();
     });
     get_books_by(search_author_input.value);
   }
+});
+// Reset the text color, from green or red.
+search_author_input.addEventListener("input", () => {
+  search_author_input.style.color = "white";
 });
 
 async function get_books_by(author) {
@@ -15,8 +21,15 @@ async function get_books_by(author) {
     `https://openlibrary.org/search/authors.json?q=${author}`
   );
   if (author_response.ok) {
-    // Then get some of his books
     const author_data = await author_response.json();
+
+    /* Check if there was a result hit. Color the search text red, avoid console type
+    error on the next API call and avoid trying a fetch that is doomed to fail */
+    if (author_data.numFound === 0) {
+      search_author_input.style.color = "red";
+      return;
+    }
+    // Then get some of his books
     const author_key = author_data.docs[0].key;
 
     const books_response = await fetch(
@@ -31,7 +44,10 @@ async function get_books_by(author) {
         .filter((book) => book.authors.length === 1)
         .filter((book) => book.covers);
       console.log(filtered_books);
-
+      if (filtered_books.length === 0)
+        document.querySelector(".search-author").style.color = "red";
+      if (filtered_books.length > 0)
+        document.querySelector(".search-author").style.color = "green";
       create_books(filtered_books);
     }
   }
