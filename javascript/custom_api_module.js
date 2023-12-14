@@ -1,28 +1,39 @@
-async function get_books() {
-  const response = await fetch(
-    "https://openlibrary.org/authors/OL1394865A/works.json?limit=200"
-  );
-
-  if (response.ok) {
-    const data = await response.json();
-
-    filtered_books = data.entries
-      .filter((book) => book.description)
-      .filter((book) => book.authors.length === 1)
-      .filter((book) => book.covers);
-    console.log(filtered_books);
-    create_books(filtered_books);
+const search_author_input = document.querySelector(".search-author");
+search_author_input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    let old_books = document.querySelectorAll(".book-card");
+    old_books.forEach((book) => {
+      book.remove();
+    });
+    get_books_by(search_author_input.value);
   }
-}
+});
 
-// Take author name and return his/her id for further use.
-async function get_author_key(author) {
-  const response = await fetch(
+async function get_books_by(author) {
+  // First get the author openlibrary-key
+  const author_response = await fetch(
     `https://openlibrary.org/search/authors.json?q=${author}`
   );
-  if (response.ok) {
-    const data = await response.json();
-    return data.docs[0].key;
+  if (author_response.ok) {
+    // Then get some of his books
+    const author_data = await author_response.json();
+    const author_key = author_data.docs[0].key;
+
+    const books_response = await fetch(
+      `https://openlibrary.org/authors/${author_key}/works.json?limit=200`
+    );
+
+    if (books_response.ok) {
+      const books_data = await books_response.json();
+      // Filter the response
+      const filtered_books = books_data.entries
+        .filter((book) => book.description)
+        .filter((book) => book.authors.length === 1)
+        .filter((book) => book.covers);
+      console.log(filtered_books);
+
+      create_books(filtered_books);
+    }
   }
 }
 
@@ -72,6 +83,3 @@ function get_description(book) {
   // Remove the excessive newlines.
   return new_string.replace("\r\n\r\n", " ");
 }
-
-// Run the shit
-get_books();

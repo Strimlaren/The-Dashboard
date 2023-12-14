@@ -113,7 +113,7 @@ main {
   justify-content: center;
   align-items: center;
   position: sticky;
-  z-index: 2;
+  z-index: 5;
   top: 0;
   background-color: rgba(25, 25, 25, 0.9);
   backdrop-filter: blur(4px);
@@ -415,7 +415,7 @@ textarea {
       rgb(141, 141, 141),
       rgb(74, 74, 74));
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 6;
+  z-index: 4;
 }
 
 .modal input {

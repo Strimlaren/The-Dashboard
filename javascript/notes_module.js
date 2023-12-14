@@ -14,6 +14,7 @@ function create_note(local_id = -1, local_text = 0, focus = true) {
   // textarea
   const textarea = document.createElement("textarea");
   textarea.classList.add("note");
+  textarea.placeholder = "Don't leave me empty!";
   // give the note text from localstorage if page is loading
   textarea.value = local_text !== 0 ? local_text : "";
   // remove button
