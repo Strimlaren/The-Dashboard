@@ -19,15 +19,25 @@ search_weather_input.addEventListener("keydown", (event) => {
   }
 });
 
+// Reset the text color, from green or red.
+search_weather_input.addEventListener("input", () => {
+  search_weather_input.style.color = "white";
+});
+
 async function get_search_query() {
   const response = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${search_weather_input.value}&appid=${api_key}`
   );
   if (response.ok) {
     const city_name = await response.json();
-    await fetch_weather(city_name[0].lat, city_name[0].lon);
+    console.log(city_name);
+    // Call API if the query was valid and a city name was returned
+    if (city_name.length > 0) {
+      await fetch_weather(city_name[0].lat, city_name[0].lon);
+      search_weather_input.style.color = "green";
+    } else search_weather_input.style.color = "red";
   } else {
-    console.log(response);
+    console.log("WEATHER API ERROR!", response);
   }
 }
 
