@@ -30,7 +30,6 @@ async function get_search_query() {
   );
   if (response.ok) {
     const city_name = await response.json();
-    console.log(city_name);
     // Call API if the query was valid and a city name was returned
     if (city_name.length > 0) {
       await fetch_weather(city_name[0].lat, city_name[0].lon);
