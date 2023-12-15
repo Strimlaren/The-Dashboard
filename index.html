@@ -19,10 +19,18 @@
 
   <!-- Main Content (title & cards)-->
   <main>
+    <div class="popup" onclick="next_note()">
+      <span class="popuptext three" data-order="3" id="popup">You can change your headline</span>
+    </div>
 
     <input id="headline" maxlength="19" type="text" autocomplete="off" class="headline" autofocus>
 
     <div class="cards-wrapper">
+
+      <div class="popup" onclick="next_note()">
+        <span class="popuptext one" data-order="1" id="popup">Add more quick-links.<br>*Click to dismiss*</span>
+      </div>
+
       <section class="quick-links">
         <div class="modal">
           <label for="link-name">Quick-Link Name:</label>
@@ -39,6 +47,12 @@
         <!-- JS INSERTS QUICK-LINK CARDS HERE -->
       </section>
 
+      <div class="popup" onclick="next_note()">
+        <span class="popuptext two" data-order="2" id="popup">Change for what city weather should be displayed. Search
+          by
+          hitting Enter.</span>
+      </div>
+
       <section class="weather">
         <div class="sticky">
           <input type="text" class="search-weather" placeholder="Search by city...">
@@ -46,13 +60,22 @@
         <!-- JS INSERTS WEATHER CARDS HERE -->
       </section>
 
+      <div class="popup" onclick="next_note()">
+        <span class="popuptext four" data-order="4" id="popup">You can also search books
+          by author. Remember to hit Enter to search.</span>
+      </div>
+
       <section class="books">
         <div class="sticky">
-          <!-- <h2 class="title">Books</h2> -->
           <input type="text" class="search-author" placeholder="Search by author...">
         </div>
         <!-- JS INSERTS BOOK CARDS HERE -->
       </section>
+
+      <div class="popup" onclick="next_note()">
+        <span class="popuptext five" data-order="5" id="popup">Keep notes in this section. Use the button to add
+          more.</span>
+      </div>
 
       <section class="notes" id="notes">
         <div class="sticky">
@@ -64,6 +87,17 @@
     </div>
 
   </main>
+
+  <div class="popup" onclick="next_note()">
+    <span class="popuptext six" data-order="6" id="popup">Click to get a new, random background. Default theme is
+      planets.</span>
+  </div>
+
+  <div class="popup" onclick="next_note()">
+    <span class="popuptext seven" data-order="7" id="popup">To get a background of a different theme, type another
+      keyword and click the button.</span>
+  </div>
+
   <div class="random-bg-btns-div">
     <button id="randomize-backdrop" class="new-bg-btn"><img src="./images/refresh.svg" alt="refresh icon"
         class="btn-icon">new background</button>

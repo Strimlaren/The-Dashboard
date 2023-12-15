@@ -86,3 +86,21 @@ function new_element(element_type, content, ...element_classes) {
   }
   return new_element;
 }
+// EXPERIMENTAL
+
+window.addEventListener("load", () => {
+  document.querySelector(".one").classList.add("show");
+});
+
+let guide_note = 1;
+function next_note() {
+  const guide_notes = document.querySelectorAll("#popup");
+  guide_notes.forEach((note) => note.classList.remove("show"));
+
+  guide_notes.forEach((note2) => {
+    if (Number(note2.dataset.order) === guide_note + 1) {
+      note2.classList.add("show");
+    }
+  });
+  guide_note++;
+}

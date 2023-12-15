@@ -54,7 +54,7 @@ main {
 .cards-wrapper {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.2rem;
   flex-wrap: wrap;
 }
 
@@ -498,5 +498,103 @@ textarea {
   .random-bg-btns-div {
     margin-top: 2rem;
     margin-bottom: 1rem;
+  }
+}
+
+/* EXPERIMENTAL  */
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: rgb(85, 85, 85, 0.9);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 1px;
+  position: absolute;
+  z-index: 2;
+}
+
+.one {
+  top: -3.4rem;
+  left: 8.1rem;
+}
+
+.two {
+  top: -4.5rem;
+  left: 3rem;
+}
+
+.three {
+  top: 2.1rem;
+  left: 25rem;
+}
+
+.four {
+  top: -5.3rem;
+  left: 5rem;
+}
+
+.five {
+  top: -3.5rem;
+  left: 6.3rem;
+}
+
+.six {
+  top: -0.6rem;
+  left: -10rem;
+}
+
+.seven {
+  top: -1.5rem;
+  left: -1rem;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 2s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
