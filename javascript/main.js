@@ -86,21 +86,24 @@ function new_element(element_type, content, ...element_classes) {
   }
   return new_element;
 }
-// EXPERIMENTAL
 
 window.addEventListener("load", () => {
   document.querySelector(".one").classList.add("show");
 });
 
 let guide_note = 1;
+// When user clicks any of the tooltips
 function next_note() {
   const guide_notes = document.querySelectorAll("#popup");
+  // Start by removing show from all tooltips
   guide_notes.forEach((note) => note.classList.remove("show"));
-
+  /* Add show if guide note corresponds to current note being 
+  looped though */
   guide_notes.forEach((note2) => {
     if (Number(note2.dataset.order) === guide_note + 1) {
       note2.classList.add("show");
     }
   });
+  // Increment so next time tooltip is clicked, next set will run
   guide_note++;
 }

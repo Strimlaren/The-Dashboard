@@ -55,6 +55,7 @@ main {
   display: flex;
   justify-content: center;
   gap: 0.2rem;
+  row-gap: 0.4rem;
   flex-wrap: wrap;
 }
 
@@ -501,16 +502,14 @@ textarea {
   }
 }
 
-/* EXPERIMENTAL  */
+/* POPUP STYLES  */
 
-/* Popup container */
 .popup {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-/* The actual popup (appears on top) */
 .popup .popuptext {
   visibility: hidden;
   width: 180px;
@@ -536,7 +535,7 @@ textarea {
 
 .three {
   top: 2.1rem;
-  left: 25rem;
+  left: 35rem;
 }
 
 .four {
@@ -555,11 +554,10 @@ textarea {
 }
 
 .seven {
-  top: -1.5rem;
+  top: -2rem;
   left: -1rem;
 }
 
-/* Popup arrow */
 .popup .popuptext::after {
   content: "";
   position: absolute;
@@ -571,14 +569,12 @@ textarea {
   border-color: #555 transparent transparent transparent;
 }
 
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 2s;
   animation: fadeIn 2s;
 }
 
-/* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
