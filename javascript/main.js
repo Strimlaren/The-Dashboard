@@ -115,3 +115,10 @@ function next_note() {
   // Increment so next time tooltip is clicked, next set will run
   guide_note++;
 }
+
+// Restart page-tour on demand
+const restart_tour_btn = document.querySelector("#show-tour");
+restart_tour_btn.addEventListener("click", () => {
+  guide_note = 1;
+  document.querySelector(".one").classList.add("show");
+});

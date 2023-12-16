@@ -23,16 +23,26 @@ body {
 
 /* DATE MODULE */
 
+.top-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 0.3rem;
+}
+
 .time-module {
-  padding: 5px 3rem;
+  padding: 5px 1.5rem;
   background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
   font-size: 0.8rem;
   border-radius: 9px;
-  margin-top: 1rem;
   backdrop-filter: blur(4px);
+}
+
+#show-tour {
+  border-radius: 9px;
 }
 
 .date {
