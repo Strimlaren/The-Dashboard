@@ -87,10 +87,18 @@ function new_element(element_type, content, ...element_classes) {
   return new_element;
 }
 
+// Make sure the tooltips only show on first load
+if (!localStorage.getItem("firstLoad"))
+  localStorage.set_obj("firstLoad", "true");
+// When page loads, make the first tooltop visible
 window.addEventListener("load", () => {
-  document.querySelector(".one").classList.add("show");
+  if (localStorage.get_obj("firstLoad") === "true") {
+    document.querySelector(".one").classList.add("show");
+    localStorage.set_obj("firstLoad", "false");
+  }
 });
 
+// Tooltop mechanics
 let guide_note = 1;
 // When user clicks any of the tooltips
 function next_note() {
