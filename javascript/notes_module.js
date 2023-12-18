@@ -1,37 +1,32 @@
-const notes_section = document.querySelector("#notes");
-const add_notes_button = document.querySelector("#add-note-btn");
-
 // Create new note with no id not text parameters sent
 add_notes_button.addEventListener("click", () => create_note());
 
 /* Function that can be called with optional parameters. When called to create a note with the interface button, it should be created with a new, random id and no text. If these values are passed in, like when browser is loading the page and wants to fetch and re-populate the notes module, it should use parameters to create a note with id and corresponding text from localStorage. */
 function create_note(local_id = -1, local_text = 0, focus = true) {
-  // give the note a "unique" id unless it already has one
+  // Give the note a "unique" id unless it already has one
   const note_id = local_id === -1 ? random_id() : local_id;
-  // div
   const note_div = document.createElement("div");
   note_div.classList.add("note-div");
-  // textarea
+
   const textarea = document.createElement("textarea");
   textarea.classList.add("note");
   textarea.placeholder = "Don't leave me empty!";
-  // give the note text from localstorage if page is loading
+  // Give the note text from localstorage if page is loading
   textarea.value = local_text !== 0 ? local_text : "";
-  // remove button
+
   const remove_button = document.createElement("img");
   remove_button.src = "./images/close.svg";
   remove_button.alt = "remove note button";
   remove_button.classList.add("remove-note-btn");
-  // append children to div
+
   note_div.append(textarea);
   note_div.append(remove_button);
-  // append div to notes section
   notes_section.append(note_div);
-  // set focus on the textarea when the note is created by user, but not when created when page is opened anew.
+  // Set focus on the textarea when the note is created by user, but not when created when page is opened anew.
   if (focus) textarea.focus();
-  // resize and save note content on user input
+  // Resize and save note content on user input
   textarea.addEventListener("input", adjust_and_save);
-  // run function once to save empty notes in case user never does any writing after creating it
+  // Run function once to save empty notes in case user never does any writing after creating it
   adjust_and_save();
 
   function adjust_and_save() {
@@ -40,19 +35,19 @@ function create_note(local_id = -1, local_text = 0, focus = true) {
     textarea.rows = 1;
     textarea.style.height = textarea.scrollHeight + "px";
 
-    // load data, update/create it and save data
+    // Load data, update/create it and save data
     let notes_data = localStorage.get_obj("notesData");
     add_or_update_note(notes_data, { id: note_id, text: textarea.value });
     localStorage.set_obj("notesData", notes_data);
   }
 
-  // remove entire note on click
+  // Remove entire note on click
   remove_button.addEventListener("click", () => {
     let notes_data = localStorage.get_obj("notesData");
-    // go though data and remove note with this correct id
+    // Go though data and remove note with this correct id
     const new_notes_data = notes_data.filter((obj) => obj.id !== note_id);
     localStorage.set_obj("notesData", new_notes_data);
-    // remove the html
+    // Remove the html
     note_div.remove();
   });
 }
@@ -61,13 +56,10 @@ function create_note(local_id = -1, local_text = 0, focus = true) {
 function add_or_update_note(array, note) {
   // Find the index of the note in the array
   const index = array.findIndex((obj) => obj.id === note.id);
-  // If the note is not found, add it to the array
+  // If the note is not found, add it to the array, else overwrite it
   if (index === -1) {
     array.push(note);
-  } else {
-    // If the object is found, overwrite it
-    array[index] = note;
-  }
+  } else array[index] = note;
 }
 
 /* Function that returns a random number that will serve as a "unique" id for each note */
@@ -76,9 +68,6 @@ function random_id() {
 }
 
 // Save assignment evaluation version of the notes section
-const simple_notes = document.querySelector(".notes2");
-const simple_notes_textarea = document.querySelector(".simple-textarea");
-
 simple_notes_textarea.addEventListener("input", () => {
   localStorage.set_obj(
     "notesDataSimple",

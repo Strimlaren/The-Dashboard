@@ -1,22 +1,23 @@
-const search_author_input = document.querySelector(".search-author");
 // Wait for enter key inside author search field
 search_author_input.addEventListener("keydown", (event) => {
   // Make sure user actually entered a search term
   if (event.key === "Enter" && search_author_input.value !== "") {
     // Remove any previous books
     let old_books = document.querySelectorAll(".book-card");
-    old_books.forEach((book) => {
-      book.remove();
-    });
+    old_books.forEach((book) => book.remove());
     // Get and render new books
     get_books_by(search_author_input.value);
   }
 });
 // Reset the text color, from green or red.
-search_author_input.addEventListener("input", () => {
-  search_author_input.style.color = "white";
-});
+search_author_input.addEventListener(
+  "input",
+  () => (search_author_input.style.color = "white")
+);
 
+/* Function that will take care of it all. Get author key, pass it on to 
+API to get author books, filter them and send the filtered results to 
+a function that will render results for user */
 async function get_books_by(author) {
   // First get the authors openlibrary-key
   const author_response = await fetch(
@@ -24,32 +25,30 @@ async function get_books_by(author) {
   );
   if (author_response.ok) {
     const author_data = await author_response.json();
-
-    /* Check if there was a result hit. Color the search text red, avoid console type
-    error on the next API call and avoid trying a fetch that is doomed to fail */
+    /* Check if there was a result hit. Color the search text red, avoid 
+    console type error on the next API call and avoid trying a fetch 
+    that is doomed to fail */
     if (author_data.numFound === 0) {
       search_author_input.style.color = "red";
       return;
     }
-    // Then get some of his books
+    // Get authors key from API
     const author_key = author_data.docs[0].key;
-
+    // And use it to call author API to get his books
     const books_response = await fetch(
       `https://openlibrary.org/authors/${author_key}/works.json?limit=200`
     );
 
     if (books_response.ok) {
       const books_data = await books_response.json();
-      // Filter the response
+      // Filter the response (inconsistent quality of API responses)
       const filtered_books = books_data.entries
         .filter((book) => book.description)
         .filter((book) => book.authors.length === 1)
         .filter((book) => book.covers);
-
-      if (filtered_books.length === 0)
-        document.querySelector(".search-author").style.color = "red";
-      if (filtered_books.length > 0)
-        document.querySelector(".search-author").style.color = "green";
+      // UX coloring of search term based on search success
+      if (filtered_books.length === 0) search_author_input.style.color = "red";
+      if (filtered_books.length > 0) search_author_input.style.color = "green";
       create_books(filtered_books);
     }
   }
@@ -58,7 +57,6 @@ async function get_books_by(author) {
 // Place the book objects on the module
 function create_books(array) {
   array.forEach((book) => {
-    const section = document.querySelector(".books");
     const div1 = new_element("div", "", "book-card");
     const img = new_element("img", "", "book-img");
     img.alt = "book cover image";
@@ -83,15 +81,16 @@ function create_books(array) {
     div2.append(div3);
     div1.append(img);
     div1.append(div2);
-    section.append(div1);
+    book_section.append(div1);
   });
 }
 
-/* API endpoint hierarchy is inconsistent. Some objects returned have the description
-attribute as a string, while others are objects that hold the description
-behind a key "value". This makes sure to return from the correct place and avoid
-"is not a function" errors. Also modify the description to get more valuable
-text on the confined space of the book cards. */
+/* API endpoint hierarchy is inconsistent. Some objects returned have the
+description attribute as a string, while others are objects that hold the 
+description behind a key "value". This makes sure to return from the 
+correct place and avoid "is not a function" errors. Also modify the 
+description to get more valuable text on the confined space of the book 
+cards. */
 function get_description(book) {
   let new_string = "";
   if (typeof book.description == "string") new_string = book.description;

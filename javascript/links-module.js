@@ -1,9 +1,3 @@
-const add_link_button = document.querySelector(".add-link");
-const link_list = document.querySelector(".quick-links");
-const user_link_name = document.querySelector("#link-name");
-const user_link_url = document.querySelector("#website-link");
-const announcer = document.querySelector(".announcer");
-
 add_link_button.addEventListener("click", () => {
   create_link();
 });
@@ -79,16 +73,10 @@ function format_link(link) {
 }
 
 // Toggling between front and back of quick-links module
-const toggle_quicklinks_button = document.querySelector("#add-link-btn");
-const toggle_quicklinks_button2 = document.querySelector("#add-link-btn2");
-
 toggle_quicklinks_button.addEventListener("click", toggle_quicklinks);
 toggle_quicklinks_button2.addEventListener("click", toggle_quicklinks);
 
 function toggle_quicklinks() {
-  const quicklinks_module = document.querySelector(".quick-links");
-  const quicklinks_back_module = document.querySelector(".quick-links-back");
-
   if (quicklinks_module.style.display === "none") {
     quicklinks_module.style.display = "flex";
     quicklinks_back_module.style.display = "none";
@@ -96,5 +84,4 @@ function toggle_quicklinks() {
     quicklinks_module.style.display = "none";
     quicklinks_back_module.style.display = "flex";
   }
-  // console.log(toggle_notes_module);
 }

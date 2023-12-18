@@ -1,4 +1,3 @@
-api_key = "022a401dd5b35aca398478bfd4aca623";
 /* Get user current location coordinates, call the fetch function from there.
  Avoids scope shenanigans with coord variables */
 navigator.geolocation.getCurrentPosition((pos) => {
@@ -8,7 +7,6 @@ navigator.geolocation.getCurrentPosition((pos) => {
 });
 
 // Wait for enter key inside weather search field
-const search_weather_input = document.querySelector(".search-weather");
 search_weather_input.addEventListener("keydown", (event) => {
   // Make sure user has actually entered something, then run the API call function
   if (event.key === "Enter" && search_weather_input.value !== "") {
@@ -47,13 +45,11 @@ async function fetch_weather(lat, lon) {
 
   if (weather_data.ok) {
     const data = await weather_data.json();
-    /* Set the search field to users destination when page
-     first loads.
+    /* Set the search field to users destination when page first loads.
     Then set it to whatever the query found. */
-    document.querySelector(".search-weather").value = data.city.name;
-    /* Create all cards, with the filtered array which
-    contains one measurement object per day. API provides 
-    5 day forecast only. */
+    search_weather_input.value = data.city.name;
+    /* Create all cards, with the filtered array which contains one 
+    measurement object per day. API provides 5 day forecast only. */
     create_weather_cards(extract_week(data), data.city);
   } else console.log("WEATHER API ERROR!", weather_data);
 }
@@ -61,7 +57,6 @@ async function fetch_weather(lat, lon) {
 // Creates cards from an array of weather API objects
 function create_weather_cards(filtered_data, raw_data) {
   filtered_data.forEach((day) => {
-    const section = document.querySelector(".weather");
     const div1 = new_element("div", "", "forecast-card");
     const img = new_element("img", "", "weather-img");
     img.alt = "weather icon";
@@ -82,7 +77,7 @@ function create_weather_cards(filtered_data, raw_data) {
     div2.append(div3);
     div1.append(img);
     div1.append(div2);
-    section.append(div1);
+    weather_section.append(div1);
   });
 }
 
@@ -91,15 +86,6 @@ function create_weather_cards(filtered_data, raw_data) {
  item, as during the last hours of the day, the first measurement date 
  will be for the next day. This accounts for that. */
 function get_day(date) {
-  const weekdays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
   const passed_date = new Date(date);
   const today = new Date();
   if (passed_date.getDay() === today.getDay()) return "Today";

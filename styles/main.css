@@ -206,6 +206,7 @@ h5 {
   text-transform: none;
   margin-left: 2px;
   margin-right: 2px;
+  max-width: 245px;
 }
 
 .search-weather {
