@@ -25,8 +25,8 @@
   way and reduced the amount of functions from 8 to 4. One of them gave me some
   interesting bugs which were very challenging to solve, so I'm thankful for that.
 - I have done a good job trying to stay outside my comfort zone when it comes to
-  some concepts and syntactical suger which I was a bit sceptical towards in the
-  beginning becuase they looked and felt strange to me coming from other languages.
+  some concepts and syntactical sugar which I was a bit skeptical towards in the
+  beginning because they looked and felt strange to me coming from other languages.
   Arrow functions and ternary operators in particular. I love them now. Instead of
   throwing a few lines of extra code to check a statement with an oldschool
   if-statement and then calling a function or creating a variable from that, just
@@ -38,7 +38,8 @@
   logical manner. Sure functions are best used when repeat code can be avoided by
   creating a function that can be called a number of times instead of writing the
   same code repeatedly, but I believe they serve a great readability purpose by
-  extracting pieces of code that have a specific tangible task. Load data from localStorage, then add_or_update_note, then save data to localStorage. Reading this
+  extracting pieces of code that have a specific tangible task. Load data from
+  localStorage, then add_or_update_note, then save data to localStorage. Reading this
   I think you can instantly tell what that function is supposed to do, instead of
   getting smashed in the face with a wall of text in that second step, which would
   take you a few minutes to grasp. Instead, you instantly know what is going on and
