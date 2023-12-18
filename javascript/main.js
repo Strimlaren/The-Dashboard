@@ -52,16 +52,14 @@ window.addEventListener("load", () => {
   }
 });
 
-// When user clicks any one of the tooltips
+// Hides current tooltip and shows the next on in order
 function next_note() {
   // Start by removing show from all tooltips
   guide_notes.forEach((note) => note.classList.remove("show"));
-  /* Add show if guide note corresponds to current note being 
-  looped though */
+  // Add show if guide note corresponds to current note being looped though
   guide_notes.forEach((note2) => {
-    if (Number(note2.dataset.order) === guide_note + 1) {
+    if (Number(note2.dataset.order) === guide_note + 1)
       note2.classList.add("show");
-    }
   });
   // Increment so next time tooltip is clicked, next set will run
   guide_note++;
