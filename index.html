@@ -13,7 +13,7 @@
 <body>
   <!-- Time Module-->
   <div class="top-container">
-    <button id="rättnings-version-toggle" class="new-bg-btn top"><span class="bold">#</span></button>
+    <button id="rättnings-version-toggle" class="new-bg-btn top"><span class="bold">⇆</span></button>
     <aside class="time-module">
       <span id="time" class="bold"></span>
       <span id="date" class="date"></span>
@@ -38,19 +38,24 @@
       </div>
 
       <section class="quick-links">
-        <div class="modal">
-          <label for="link-name">Quick-Link Name:</label>
-          <input type="text" name="link-name" id="link-name" placeholder="Google" required>
-          <label for="website-link">Quick-Link URL:</label>
-          <input type="text" name="website-link" id="website-link" placeholder="https://www.google.com" required><br>
-          <button class="add-link">Add Link</button>
-          <span class="announcer"></span>
-        </div>
         <div class="sticky">
           <h2 class="title">Quick-Links</h2>
           <img src="./images/add.svg" alt="add notes button" class="add-notes-icon pos-right" id="add-link-btn">
         </div>
         <!-- JS INSERTS QUICK-LINK CARDS HERE -->
+      </section>
+
+      <section class="quick-links-back">
+        <div class="sticky">
+          <h2 class="title">Add Link</h2>
+          <img src="./images/close.svg" alt="add notes button" class="add-notes-icon pos-right" id="add-link-btn2">
+        </div>
+        <label for="link-name">Quick-Link Name:</label>
+        <input type="text" name="link-name" id="link-name" placeholder="Google" required>
+        <label for="website-link">Quick-Link URL:</label>
+        <input type="text" name="website-link" id="website-link" placeholder="https://www.google.com" required><br>
+        <button class="add-link">Add Link</button>
+        <span class="announcer"></span>
       </section>
 
       <div class="popup" onclick="next_note()">
@@ -96,7 +101,6 @@
           <h2 class="title">Notes</h2>
         </div>
         <textarea class="simple-textarea" name="notes-area" id="notes-area"></textarea>
-        <!-- JS INSERTS NOTE CARDS HERE -->
       </section>
     </div>
 

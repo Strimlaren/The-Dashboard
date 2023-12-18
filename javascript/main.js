@@ -57,21 +57,21 @@ my_headline.addEventListener("input", function () {
 
 // Modal popup for creating new Quick-Links
 
-const add_link_btn = document.querySelector("#add-link-btn");
-const first_input = document.querySelector("#link-name");
-add_link_btn.addEventListener("click", toggle_modal);
+// const add_link_btn = document.querySelector("#add-link-btn");
+// const first_input = document.querySelector("#link-name");
+// add_link_btn.addEventListener("click", toggle_modal);
 
-function toggle_modal() {
-  const modal = document.querySelector(".modal");
-  if (modal.style.display === "block") {
-    modal.style.display = "none";
-    add_link_btn.src = "images/add.svg";
-  } else {
-    modal.style.display = "block";
-    add_link_btn.src = "images/close.svg";
-    first_input.focus();
-  }
-}
+// function toggle_modal() {
+//   const modal = document.querySelector(".modal");
+//   if (modal.style.display === "block") {
+//     modal.style.display = "none";
+//     add_link_btn.src = "images/add.svg";
+//   } else {
+//     modal.style.display = "block";
+//     add_link_btn.src = "images/close.svg";
+//     first_input.focus();
+//   }
+// }
 
 // GLOBAL FUNCTIONS
 
@@ -128,13 +128,18 @@ const toggle_notes_button = document.querySelector("#rättnings-version-toggle")
 
 toggle_notes_button.addEventListener("click", () => {
   const toggle_notes_module = document.querySelector(".notes");
-  const toggle_notes_module2 = document.querySelector(".notes2");
+
   if (toggle_notes_module.style.display !== "none") {
     toggle_notes_module.style.display = "none";
-    toggle_notes_module2.style.display = "flex";
+    simple_notes.style.display = "flex";
   } else {
     toggle_notes_module.style.display = "flex";
-    toggle_notes_module2.style.display = "none";
+    simple_notes.style.display = "none";
   }
-  console.log(toggle_notes_module);
 });
+
+// Load simple notes text
+document.querySelector(".simple-textarea").value =
+  localStorage.get_obj("notesDataSimple");
+
+// const add_link_btn = document.querySelector("#add-link-btn");

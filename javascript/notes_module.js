@@ -1,5 +1,5 @@
-const notes_section = document.getElementById("notes");
-const add_notes_button = document.getElementById("add-note-btn");
+const notes_section = document.querySelector("#notes");
+const add_notes_button = document.querySelector("#add-note-btn");
 
 // Create new note with no id not text parameters sent
 add_notes_button.addEventListener("click", () => create_note());
@@ -74,3 +74,14 @@ function add_or_update_note(array, note) {
 function random_id() {
   return Math.floor(Math.random() * 1000000);
 }
+
+// Save assignment evaluation version of the notes section
+const simple_notes = document.querySelector(".notes2");
+const simple_notes_textarea = document.querySelector(".simple-textarea");
+
+simple_notes_textarea.addEventListener("input", () => {
+  localStorage.set_obj(
+    "notesDataSimple",
+    document.querySelector(".simple-textarea").value
+  );
+});

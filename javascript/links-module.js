@@ -62,7 +62,7 @@ function create_link(name = 0, url = 0, user_call = true) {
   user_link_url.value = "";
   announcer.innerText = "";
   // If the function is called by user adding a new link, toggle the modal. If it is called by opening the page and rendering the saved links, dont toggle modal
-  if (user_call) toggle_modal();
+  if (user_call) toggle_quicklinks();
 }
 
 // Save link to localStorage
@@ -76,4 +76,25 @@ function format_link(link) {
   if (!link.includes("www")) link = `www.${link}`;
   if (!link.includes("https://")) link = `https://${link}`;
   return link;
+}
+
+// Toggling between front and back of quick-links module
+const toggle_quicklinks_button = document.querySelector("#add-link-btn");
+const toggle_quicklinks_button2 = document.querySelector("#add-link-btn2");
+
+toggle_quicklinks_button.addEventListener("click", toggle_quicklinks);
+toggle_quicklinks_button2.addEventListener("click", toggle_quicklinks);
+
+function toggle_quicklinks() {
+  const quicklinks_module = document.querySelector(".quick-links");
+  const quicklinks_back_module = document.querySelector(".quick-links-back");
+
+  if (quicklinks_module.style.display === "none") {
+    quicklinks_module.style.display = "flex";
+    quicklinks_back_module.style.display = "none";
+  } else {
+    quicklinks_module.style.display = "none";
+    quicklinks_back_module.style.display = "flex";
+  }
+  // console.log(toggle_notes_module);
 }

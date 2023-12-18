@@ -92,6 +92,7 @@ main {
 }
 
 .quick-links,
+.quick-links-back,
 .weather,
 .books,
 .notes,
@@ -114,14 +115,13 @@ main {
   position: relative;
 }
 
-.notes2 {
-  display: none;
-}
 
 .quick-links::-webkit-scrollbar,
+.quick-links-back::-webkit-scrollbar,
 .weather::-webkit-scrollbar,
 .books::-webkit-scrollbar,
-.notes::-webkit-scrollbar {
+.notes::-webkit-scrollbar,
+.notes2::-webkit-scrollbar {
   display: none;
 }
 
@@ -147,6 +147,10 @@ main {
   margin-right: 2px;
   position: relative;
   transition: all 0.5s;
+}
+
+.quick-links-back {
+  display: none;
 }
 
 .link-card a {
@@ -313,6 +317,10 @@ h4 {
 
 /* NOTE MODULE SPECIFICS*/
 
+.notes2 {
+  display: none;
+}
+
 .add-notes-icon {
   filter: invert(17%) sepia(91%) saturate(6409%) hue-rotate(131deg) brightness(95%) contrast(98%);
   width: 1.7rem;
@@ -340,14 +348,14 @@ textarea {
 
 .simple-textarea {
   height: 100%;
-  border-radius: 9px;
+  border-radius: 11px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   margin-left: 2px;
 }
 
 .notes2 {
-  padding-bottom: 3px;
+  padding-bottom: 2px;
 
 }
 
@@ -455,32 +463,10 @@ textarea {
   right: 1.5rem;
 }
 
-/* MODAL */
+/* QUICK-LINKS BACK */
 
-.modal {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  margin-top: 47px;
-  transform: translate(-50%, -50%);
-  text-transform: none;
-  text-align: left;
-  font-weight: 700;
-  padding: 5px;
-  background-image: linear-gradient(0deg,
-      white,
-      rgb(206, 206, 206),
-      rgb(141, 141, 141),
-      rgb(74, 74, 74));
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 4;
-}
-
-.modal input {
-  width: 100%;
+.quick-links-back>input {
+  width: 98%;
   height: 2rem;
   font-size: 1rem;
   background-color: transparent;
@@ -490,49 +476,47 @@ textarea {
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 4px;
-  margin-top: 0.3rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0rem;
+  margin-bottom: 0.3rem;
+  margin-left: 2px;
+  margin-right: 2px;
   transition: all 0.5s ease;
 }
 
-.modal input:hover {
-  border: 1px solid rgba(255, 255, 255, 0.48);
+.quick-links-back input:hover {
+  border: 1px solid rgba(255, 255, 255, 0.58);
 }
 
-.modal input:focus {
+.quick-links-back input:focus {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.modal button {
+.quick-links-back label:first-of-type {
+  margin-top: 20px;
+}
+
+.quick-links-back label {
+  font-size: 1.2rem;
+}
+
+.quick-links-back button {
   margin-top: 1rem;
-  padding: 5px 18px;
-  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
   color: black;
   font-size: 1rem;
-  border-radius: 9px;
+  margin: 20px 60px 0 60px;
+  border-radius: 5px;
 }
 
-.modal button:hover {
-  border: 1px solid white;
+.quick-links-back button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.589);
 }
 
-@media(max-width: 540px) {
-  .headline {
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1.1rem;
-  }
-
-  .random-bg-btns-div {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-/* POPUP STYLES  */
+/* TOOLTIP GUIDE STYLES  */
 
 .popup {
   position: relative;
@@ -622,5 +606,20 @@ textarea {
 
   to {
     opacity: 1;
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width: 540px) {
+  .headline {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .random-bg-btns-div {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 }
