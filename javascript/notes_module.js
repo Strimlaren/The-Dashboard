@@ -1,6 +1,3 @@
-// Create new note with no id not text parameters sent
-add_notes_button.addEventListener("click", () => create_note());
-
 /* Function that can be called with optional parameters. When called to create a note with the interface button, it should be created with a new, random id and no text. If these values are passed in, like when browser is loading the page and wants to fetch and re-populate the notes module, it should use parameters to create a note with id and corresponding text from localStorage. */
 function create_note(local_id = -1, local_text = 0, focus = true) {
   // Give the note a "unique" id unless it already has one
@@ -68,9 +65,6 @@ function random_id() {
 }
 
 // Save assignment evaluation version of the notes section
-simple_notes_textarea.addEventListener("input", () => {
-  localStorage.set_obj(
-    "notesDataSimple",
-    document.querySelector(".simple-textarea").value
-  );
-});
+simple_notes_textarea.addEventListener("input", () =>
+  localStorage.set_obj("notesDataSimple", simple_notes_textarea.value)
+);

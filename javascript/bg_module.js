@@ -1,5 +1,3 @@
-random_bg_btn.addEventListener("click", get_new_bg);
-
 async function get_new_bg() {
   const query = user_keyword.value !== "" ? user_keyword.value : "planet";
   const response = await fetch(

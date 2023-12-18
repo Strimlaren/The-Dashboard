@@ -1,7 +1,3 @@
-add_link_button.addEventListener("click", () => {
-  create_link();
-});
-
 // Default values will be used if user creates new link
 function create_link(name = 0, url = 0, user_call = true) {
   // Check how function was called. User or browser (re)loaded?
@@ -73,9 +69,6 @@ function format_link(link) {
 }
 
 // Toggling between front and back of quick-links module
-toggle_quicklinks_button.addEventListener("click", toggle_quicklinks);
-toggle_quicklinks_button2.addEventListener("click", toggle_quicklinks);
-
 function toggle_quicklinks() {
   if (quicklinks_module.style.display === "none") {
     quicklinks_module.style.display = "flex";

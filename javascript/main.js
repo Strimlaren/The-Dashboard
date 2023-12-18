@@ -47,7 +47,7 @@ if (!localStorage.getItem("firstLoad"))
 // When page loads, make the first tooltop visible
 window.addEventListener("load", () => {
   if (localStorage.get_obj("firstLoad") === "true") {
-    document.querySelector(".one").classList.add("show");
+    first_tooltip.classList.add("show");
     localStorage.set_obj("firstLoad", "false");
   }
 });
@@ -70,7 +70,7 @@ function next_note() {
 // Restart page-tour on demand
 restart_tour_btn.addEventListener("click", () => {
   guide_note = 1;
-  document.querySelector(".one").classList.add("show");
+  first_tooltip.classList.add("show");
 });
 
 // Toggling between assignment instructions vs. my version of notes module.
@@ -85,5 +85,4 @@ toggle_notes_button.addEventListener("click", () => {
 });
 
 // Load simple notes text
-document.querySelector(".simple-textarea").value =
-  localStorage.get_obj("notesDataSimple");
+simple_notes_textarea.value = localStorage.get_obj("notesDataSimple");

@@ -1,3 +1,5 @@
+// VARIABLES
+
 api_key = "022a401dd5b35aca398478bfd4aca623";
 let local_notes_data = [];
 let local_links_data = [];
@@ -27,12 +29,15 @@ const months = [
   "december",
 ];
 
+// DOM CONNECTIONS
+
 // MISCELLENOUS DOM ELEMENTS
 const my_headline = document.querySelector(".headline");
 const guide_notes = document.querySelectorAll("#popup");
 const restart_tour_btn = document.querySelector("#show-tour");
 const toggle_notes_button = document.querySelector("#rättnings-version-toggle");
 const toggle_notes_module = document.querySelector(".notes");
+const first_tooltip = document.querySelector(".one");
 // QUICK-LINKS DOM ELEMENTS
 const add_link_button = document.querySelector(".add-link");
 const link_list = document.querySelector(".quick-links");
@@ -60,6 +65,16 @@ const date_element = document.querySelector("#date");
 // CUSTOM API DOM ELEMENTS
 const search_author_input = document.querySelector(".search-author");
 const book_section = document.querySelector(".books");
+
+// EVENT LISTENERS
+
+add_link_button.addEventListener("click", () => create_link());
+add_notes_button.addEventListener("click", () => create_note());
+toggle_quicklinks_button.addEventListener("click", () => toggle_quicklinks());
+toggle_quicklinks_button2.addEventListener("click", () => toggle_quicklinks());
+random_bg_btn.addEventListener("click", () => get_new_bg());
+
+// FUNCTIONS
 
 // Returns a new element of specified type, content and any number of classes
 function new_element(element_type, content, ...element_classes) {
