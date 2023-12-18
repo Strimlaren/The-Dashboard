@@ -47,13 +47,15 @@ async function fetch_weather(lat, lon) {
 
   if (weather_data.ok) {
     const data = await weather_data.json();
-    /* Set the search field to users destination when page first loads.
+    /* Set the search field to users destination when page
+     first loads.
     Then set it to whatever the query found. */
     document.querySelector(".search-weather").value = data.city.name;
-    /* Create all cards, with the filtered array which contains one 
-    measurement object per day. API provides 5 day forecast only. */
+    /* Create all cards, with the filtered array which
+    contains one measurement object per day. API provides 
+    5 day forecast only. */
     create_weather_cards(extract_week(data), data.city);
-  } else console.log("WEATHER API ERROR!");
+  } else console.log("WEATHER API ERROR!", weather_data);
 }
 
 // Creates cards from an array of weather API objects

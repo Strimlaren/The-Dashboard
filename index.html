@@ -13,6 +13,7 @@
 <body>
   <!-- Time Module-->
   <div class="top-container">
+    <button id="rättnings-version-toggle" class="new-bg-btn top"><span class="bold">#</span></button>
     <aside class="time-module">
       <span id="time" class="bold"></span>
       <span id="date" class="date"></span>
@@ -81,12 +82,20 @@
         <span class="popuptext five" data-order="5" id="popup">Keep notes in this section. Use the button to add
           more.</span>
       </div>
-
+      <!-- NOTES SECTION MIRZAS WAY -->
       <section class="notes" id="notes">
         <div class="sticky">
           <h2 class="title">Notes</h2>
           <img src="./images/add.svg" alt="add notes button" class="add-notes-icon" id="add-note-btn">
         </div>
+        <!-- JS INSERTS NOTE CARDS HERE -->
+      </section>
+      <!-- NOTES SECTION ASSIGNMENT INSTRUCTIONS -->
+      <section class="notes2" id="notes2">
+        <div class="sticky">
+          <h2 class="title">Notes</h2>
+        </div>
+        <textarea class="simple-textarea" name="notes-area" id="notes-area"></textarea>
         <!-- JS INSERTS NOTE CARDS HERE -->
       </section>
     </div>

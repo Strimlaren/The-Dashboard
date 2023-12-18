@@ -41,7 +41,8 @@ body {
   backdrop-filter: blur(4px);
 }
 
-#show-tour {
+#show-tour,
+#rättnings-version-toggle {
   border-radius: 9px;
 }
 
@@ -93,7 +94,8 @@ main {
 .quick-links,
 .weather,
 .books,
-.notes {
+.notes,
+.notes2 {
   display: flex;
   flex-direction: column;
   background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -110,6 +112,10 @@ main {
   scrollbar-width: none;
   -ms-overflow-style: none;
   position: relative;
+}
+
+.notes2 {
+  display: none;
 }
 
 .quick-links::-webkit-scrollbar,
@@ -308,7 +314,6 @@ h4 {
 /* NOTE MODULE SPECIFICS*/
 
 .add-notes-icon {
-  /* filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%); */
   filter: invert(17%) sepia(91%) saturate(6409%) hue-rotate(131deg) brightness(95%) contrast(98%);
   width: 1.7rem;
   position: absolute;
@@ -333,6 +338,19 @@ textarea {
   margin-right: 1px;
 }
 
+.simple-textarea {
+  height: 100%;
+  border-radius: 9px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: 2px;
+}
+
+.notes2 {
+  padding-bottom: 3px;
+
+}
+
 .note-div {
   position: relative;
   gap: 0px;
@@ -352,14 +370,16 @@ textarea {
   filter: invert(0%) sepia(0%) saturate(18%) hue-rotate(293deg) brightness(95%) contrast(105%);
 }
 
-.note {
+.note,
+.simple-textarea {
   background-color: rgba(255, 255, 255, 0.5);
   transition: all 0.5s ease;
   border: 0;
   outline: 0;
 }
 
-.note:focus {
+.note:focus,
+.simple-textarea:focus {
   background-color: rgba(255, 255, 255, 0.8);
 }
 

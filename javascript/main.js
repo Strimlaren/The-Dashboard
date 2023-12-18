@@ -98,7 +98,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// Tooltop mechanics
+// Tooltip mechanics
 let guide_note = 1;
 // When user clicks any of the tooltips
 function next_note() {
@@ -121,4 +121,20 @@ const restart_tour_btn = document.querySelector("#show-tour");
 restart_tour_btn.addEventListener("click", () => {
   guide_note = 1;
   document.querySelector(".one").classList.add("show");
+});
+
+// Toggling between assignment instructions vs. my version of notes module.
+const toggle_notes_button = document.querySelector("#rättnings-version-toggle");
+
+toggle_notes_button.addEventListener("click", () => {
+  const toggle_notes_module = document.querySelector(".notes");
+  const toggle_notes_module2 = document.querySelector(".notes2");
+  if (toggle_notes_module.style.display !== "none") {
+    toggle_notes_module.style.display = "none";
+    toggle_notes_module2.style.display = "flex";
+  } else {
+    toggle_notes_module.style.display = "flex";
+    toggle_notes_module2.style.display = "none";
+  }
+  console.log(toggle_notes_module);
 });
