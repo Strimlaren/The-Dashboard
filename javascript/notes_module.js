@@ -49,7 +49,9 @@ function create_note(local_id = -1, local_text = 0, focus = true) {
   });
 }
 
-/* Function that will check whether this note already exists. If yes, then update it with users new input, if not, create it. This is cruical to be able to delete notes in any order. */
+/* Function that will check whether this note already exists. If yes, then update
+ it with users new input, if not, create it. This is cruical to be able to delete
+ notes in any order. */
 function add_or_update_note(array, note) {
   // Find the index of the note in the array
   const index = array.findIndex((obj) => obj.id === note.id);

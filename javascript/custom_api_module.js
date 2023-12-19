@@ -51,7 +51,7 @@ async function get_books_by(author) {
       if (filtered_books.length > 0) search_author_input.style.color = "green";
       create_books(filtered_books);
     }
-  }
+  } else console.log("AUTHOR KEY API ERROR!", author_response);
 }
 
 // Place the book objects on the module

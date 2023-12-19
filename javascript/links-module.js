@@ -51,7 +51,8 @@ function create_link(name = 0, url = 0, user_call = true) {
   user_link_name.value = "";
   user_link_url.value = "";
   announcer.innerText = "";
-  // If the function is called by user adding a new link, toggle the modal. If it is called by opening the page and rendering the saved links, dont toggle modal
+  /* If the function is called by user adding a new link, toggle the modal. If it
+  is called by opening the page and rendering the saved links, dont toggle modal */
   if (user_call) toggle_quicklinks();
 }
 

@@ -54,7 +54,8 @@ async function fetch_weather(lat, lon) {
   } else console.log("WEATHER API ERROR!", weather_data);
 }
 
-// Creates cards from an array of weather API objects
+/* Creates cards from an array of weather API objects. Receiving raw data because
+city information is in the original json. It will be filtered out. */
 function create_weather_cards(filtered_data, raw_data) {
   filtered_data.forEach((day) => {
     const div1 = new_element("div", "", "forecast-card");
