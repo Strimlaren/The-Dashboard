@@ -19,6 +19,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 0;
+  height: 100vh;
+  width: auto;
 }
 
 /* DATE MODULE */
@@ -49,7 +51,6 @@ body {
 .date {
   margin-left: 1rem;
   color: rgba(70, 255, 255, 0.7);
-  ;
 }
 
 /* MAIN CONTENT */
@@ -398,8 +399,8 @@ textarea {
 
 .random-bg-btns-div {
   display: flex;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
+  margin-top: auto;
+  margin-bottom: 3rem;
 }
 
 .new-bg-btn {
@@ -620,7 +621,7 @@ textarea {
   }
 
   .random-bg-btns-div {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: auto;
+    /* margin-bottom: auto; */
   }
 }
