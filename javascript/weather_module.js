@@ -50,20 +50,19 @@ async function fetch_weather(lat, lon) {
     search_weather_input.value = data.city.name;
     /* Create all cards, with the filtered array which contains one 
     measurement object per day. API provides 5 day forecast only. */
-    create_weather_cards(extract_week(data), data.city);
+    create_weather_cards(extract_week(data), data.city.name);
   } else console.log("WEATHER API ERROR!", weather_data);
 }
 
-/* Creates cards from an array of weather API objects. Receiving raw data because
-city information is in the original json. It will be filtered out. */
-function create_weather_cards(filtered_data, raw_data) {
+/* Creates cards from an array of weather API objects. */
+function create_weather_cards(filtered_data, city_name) {
   filtered_data.forEach((day) => {
     const div1 = new_element("div", "", "forecast-card");
     const img = new_element("img", "", "weather-img");
     img.alt = "weather icon";
     img.src = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
     const div2 = new_element("div", "", "forecast-text-content");
-    const h4 = new_element("h4", `${raw_data.name} - ${get_day(day.dt_txt)}`);
+    const h4 = new_element("h4", `${city_name} - ${get_day(day.dt_txt)}`);
     const div3 = new_element("div", "", "data-div");
     const div4 = new_element("div", `${day.main.temp} °C`, "data-obj");
     const div5 = new_element(
@@ -82,10 +81,10 @@ function create_weather_cards(filtered_data, raw_data) {
   });
 }
 
-/* Returns day. Because of API restrictions, returning measurements in 3h
- increments, it is not always possible to return "Today" to the first 
- item, as during the last hours of the day, the first measurement date 
- will be for the next day. This accounts for that. */
+/* Returns day. Because of API restrictions, returning measurements 
+in 3h increments, it is not always possible to return "Today" to the
+first item, as during the last hours of the day, the first
+measurement date will be for the next day. This accounts for that. */
 function get_day(date) {
   const passed_date = new Date(date);
   const today = new Date();
@@ -96,7 +95,7 @@ function get_day(date) {
 // Return array with objects with measurements from 12:00 each day
 function extract_week(data) {
   /* If the first measurement is from 0:00, 2 measurements from first day
-  would be sent, this prevents that. Otherwise, we just take[0] as today */
+  would be sent, this prevents that. Otherwise, we just take [0] as today */
   const today = data.list[0].dt_txt.includes("00:00:00")
     ? data.list[4]
     : data.list[0];
